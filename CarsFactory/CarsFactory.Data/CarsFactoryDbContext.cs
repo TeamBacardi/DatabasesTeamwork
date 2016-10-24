@@ -6,10 +6,10 @@ namespace CarsFactory.Data
 {    
     public class CarsFactoryDbContext : DbContext
     {      
-        private const string RobotsFactoryDatabaseName = "CarParts";
+        private const string CarsFactoryDatabaseName = "CarParts";
 
         public CarsFactoryDbContext()
-            : base(RobotsFactoryDatabaseName)
+            : base(CarsFactoryDatabaseName)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<CarsFactoryDbContext, Configuration>());
         }   
