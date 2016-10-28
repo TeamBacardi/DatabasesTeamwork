@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsFactory.XML", "CarsFact
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsFactory.MongoDB", "CarsFactory.MongoDB\CarsFactory.MongoDB.csproj", "{F3C36B0B-EA50-447A-9811-9A33E559945A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsFactory.DesktopClient", "CarsFactory.DesktopClient\CarsFactory.DesktopClient.csproj", "{CCFCAE0A-155E-4958-99DD-8C3F2E969A12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{F3C36B0B-EA50-447A-9811-9A33E559945A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3C36B0B-EA50-447A-9811-9A33E559945A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3C36B0B-EA50-447A-9811-9A33E559945A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCFCAE0A-155E-4958-99DD-8C3F2E969A12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCFCAE0A-155E-4958-99DD-8C3F2E969A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCFCAE0A-155E-4958-99DD-8C3F2E969A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCFCAE0A-155E-4958-99DD-8C3F2E969A12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -42,13 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Car.cs" />
-    <Compile Include="CarColour.cs" />
-    <Compile Include="CarManufacturer.cs" />
     <Compile Include="Part.cs" />
-    <Compile Include="PartManufacturer.cs" />
-    <Compile Include="PartSupplier.cs" />
-    <Compile Include="PartType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sale.cs" />
+    <Compile Include="SaleReport.cs" />
+    <Compile Include="Shop.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

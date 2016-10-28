@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarsFactory.Models
@@ -11,19 +12,12 @@ namespace CarsFactory.Models
         [Required]
         public string Model { get; set; }
 
-        [Required]
         public string YearOfManufacture { get; set; }
 
         public string Details { get; set; }
+        
+        public decimal? Price { get; set; }
 
-        [ForeignKey("Manufacturer")]
-        public int ManufacturerId { get; set; }
-
-        public virtual CarManufacturer Manufacturer { get; set; }
-
-        [ForeignKey("Colour")]
-        public int ColourId { get; set; }
-
-        public virtual CarColour Colour { get; set; }
+        public virtual ICollection<Part> Parts { get; set; }
     }
 }
