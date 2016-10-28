@@ -47,10 +47,14 @@ namespace CarsFactory.Excel
         {
             DirectoryInfo[] childDirectories = directory.GetDirectories();
 
+
             foreach (DirectoryInfo dir in childDirectories)
             {
                 IterateDirectory(dir, db);
             }
+
+
+            string currectDocumentDate = directory.Name;
 
             FileInfo[] files = directory.GetFiles();
             foreach (var file in files)
@@ -66,6 +70,8 @@ namespace CarsFactory.Excel
                         Sale sale = CreateSale(row, db);
                         db.Sales.Add(sale);
                         saleReport.Sales.Add(sale);
+                        saleReport.Date = DateTime.Parse(currectDocumentDate);
+                        saleReport.Name = $"Report for shop: {sale.Shop.Name}";
                     }
 
                     db.SaleReports.Add(saleReport);

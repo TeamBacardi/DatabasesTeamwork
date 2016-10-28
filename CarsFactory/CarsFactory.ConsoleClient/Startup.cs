@@ -1,5 +1,6 @@
 ﻿using System;
 using CarsFactory.Data;
+using CarsFactory.MongoDB;
 
 namespace CarsFactory.ConsoleClient
 {
@@ -9,8 +10,7 @@ namespace CarsFactory.ConsoleClient
         {
             var db = new CarsFactoryDbContext();
 
-            // Query stuff with LINQ
-            Console.WriteLine("DB initialized");
+            MongoDbImporter.Connect();
         }
     }
 }
