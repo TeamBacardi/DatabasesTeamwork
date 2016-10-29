@@ -10,7 +10,7 @@ namespace CarsFactory.ConsoleClient
     {
         public static void Main()
         {
-            //var db = new CarsFactoryDbContext();
+            var db = new CarsFactoryDbContext();
 
             //string filename = "../../20-Aug-2015";
 
