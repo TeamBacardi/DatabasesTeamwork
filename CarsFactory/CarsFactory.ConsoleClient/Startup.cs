@@ -3,6 +3,7 @@ using CarsFactory.Data;
 using CarsFactory.MongoDB;
 using CarsFactory.Excel;
 using CarsFactory.MySql;
+using CarsFactory.Sqlite;
 
 namespace CarsFactory.ConsoleClient
 {
@@ -20,6 +21,8 @@ namespace CarsFactory.ConsoleClient
             var reporter = new MySqlData();
 
             MySqlSeed.Seed(reporter);
+
+
         }
     }
 }
