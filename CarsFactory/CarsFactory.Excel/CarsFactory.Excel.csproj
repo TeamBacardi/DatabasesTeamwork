@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bytescout.Spreadsheet, Version=2.7.0.1554, Culture=neutral, PublicKeyToken=f7dd1bd9d40a50eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bytescout.Spreadsheet.2.70.1553\lib\net40\Bytescout.Spreadsheet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -41,6 +45,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Xml.Linq" />
@@ -51,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExcelExporter.cs" />
     <Compile Include="ExcelImproter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,6 +68,10 @@
     <ProjectReference Include="..\CarsFactory.Models\CarsFactory.Models.csproj">
       <Project>{9A50E84C-0EA5-49E2-A435-D8EB5C3E5EA5}</Project>
       <Name>CarsFactory.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarsFactory.MySql\CarsFactory.MySql.csproj">
+      <Project>{259F79A7-AB89-415E-B148-4187E067CB0E}</Project>
+      <Name>CarsFactory.MySql</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
