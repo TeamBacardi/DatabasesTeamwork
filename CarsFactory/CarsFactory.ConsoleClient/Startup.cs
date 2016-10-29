@@ -21,8 +21,6 @@ namespace CarsFactory.ConsoleClient
             var reporter = new MySqlData();
 
             MySqlSeed.Seed(reporter);
-
-
         }
     }
 }
