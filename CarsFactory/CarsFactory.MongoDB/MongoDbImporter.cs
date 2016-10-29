@@ -9,69 +9,73 @@ using CarsFactory.Models;
 using MongoDB.Bson;
 using MongoDB.Bson.IO;
 using MongoDB.Driver;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using JsonConvert = Newtonsoft.Json.JsonConvert;
 
 namespace CarsFactory.MongoDB
 {
     public class MongoDbImporter
     {
-        private static IMongoDatabase mongoDatabase;
+        private readonly IMongoClient client;
+        private readonly CarsFactoryDbContext dbContext;
+        
+        private static IMongoDatabase database;
 
-        public static IMongoDatabase GetInstance(string serverName, string databaseName)
+        public MongoDbImporter(CarsFactoryDbContext dbContext)
         {
-            if (mongoDatabase == null)
+            this.dbContext = dbContext;
+            this.client = new MongoClient();
+        }
+
+        public void Transfer()
+        {
+            database = client.GetDatabase("carShops");
+
+            var cars = database.GetCollection<Car>("cars");
+            var shops = database.GetCollection<Shop>("shops");
+            var parts = database.GetCollection<Part>("parts");
+
+            TransferCars(cars, dbContext);
+            TransferParts(parts, dbContext);
+            TransferCarShops(shops, dbContext);
+
+        }
+
+        private void TransferCars(IMongoCollection<Car> collection, CarsFactoryDbContext dbContext)
+        {
+            var cars = collection.Find(c => true).ToList();
+
+            foreach (var car in cars)
             {
-                var client = new MongoClient(serverName);
-                mongoDatabase = client.GetDatabase(databaseName);
+                dbContext.Cars.Add(car);
             }
 
-            return mongoDatabase;
+            dbContext.SaveChanges();
         }
 
-        public static void Connect()
+        private void TransferParts(IMongoCollection<Part> collection, CarsFactoryDbContext dbContext)
         {
-            var client = new MongoClient();
+            var parts = collection.Find(p => true).ToList();
 
-            var database = client.GetDatabase("test");
-            var collection = database.GetCollection<BsonDocument>("carShops");
-
-            var cars = (from r in collection.AsQueryable()
-                        select r["carShops"]).ToList();
-
-            var car = CreateCar(cars.ToJson());
-
-            Console.WriteLine(collection.AsQueryable().Select(r => r["carShops"]).ToList()[0]);
-            // Console.WriteLine(s[0]);
-        }
-
-        private static IEnumerable<Car> ParseShit(string json)
-        {
-            var listCars = new List<Car>();
-            var carShops = JArray.Parse(json);
-
-            foreach (var carShop in carShops)
+            foreach (var part in parts)
             {
-                string s = carShop.Value<string>();
+                dbContext.Parts.Add(part);
             }
 
-            var cars = carShops["cars"];
-            return listCars;
+            dbContext.SaveChanges();
         }
 
-        private static Car CreateCar(string json)
+        private void TransferCarShops(IMongoCollection<Shop> collection, CarsFactoryDbContext dbContext)
         {
-           IEnumerable<Car> cars = ParseShit(json);
-            var car = new Car();
-            var jObject = JArray.Parse(json);
-            car.Details = (string)jObject["details"];
-            car.Model = (string)jObject["model"];
-            car.Price = decimal.Parse(jObject["price"].ToString());
-            return car;
-        }
+            var shops = collection.Find(s => true).ToList();
 
-        private void AddCarToMsSql(CarsFactoryDbContext dbContext, Car car)
-        {
-            dbContext.Cars.Add(car);
+            foreach (var entity in shops)
+            {
+                dbContext.Shops.Add(entity);
+            }
+
+            dbContext.SaveChanges();
         }
     }
 }

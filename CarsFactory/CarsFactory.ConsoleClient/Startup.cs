@@ -10,7 +10,10 @@ namespace CarsFactory.ConsoleClient
         {
             var db = new CarsFactoryDbContext();
 
-            MongoDbImporter.Connect();
+            MongoDbSeeder.ConnectAndSeed();
+
+            var mongoImporter = new MongoDbImporter(db);
+            mongoImporter.Transfer();
         }
     }
 }
