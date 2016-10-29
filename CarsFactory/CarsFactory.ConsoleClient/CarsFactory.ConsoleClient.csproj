@@ -110,6 +110,10 @@
       <Project>{259f79a7-ab89-415e-b148-4187e067cb0e}</Project>
       <Name>CarsFactory.MySql</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CarsFactory.Sqlite\CarsFactory.Sqlite.csproj">
+      <Project>{e199fd22-00fc-4d2f-adff-5048b465032e}</Project>
+      <Name>CarsFactory.Sqlite</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

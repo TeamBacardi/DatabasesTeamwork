@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarsFactory.Sqlite
 {
-    class Program
+    class Startup
     {
         static void Main(string[] args)
         {
