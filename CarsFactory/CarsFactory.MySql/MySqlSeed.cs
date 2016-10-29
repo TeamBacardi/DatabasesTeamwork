@@ -18,7 +18,7 @@ namespace CarsFactory.MySql
                 .Select(s => new ShopReport
                 {
                     ShopName = s.Name,
-                    Profit = 5000
+                    Profit = 252
                 })
                 .ToList();
 

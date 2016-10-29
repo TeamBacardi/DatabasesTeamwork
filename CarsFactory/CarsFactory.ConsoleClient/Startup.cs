@@ -13,14 +13,14 @@ namespace CarsFactory.ConsoleClient
         {
             var db = new CarsFactoryDbContext();
 
-            //string filename = "../../20-Aug-2015";
+            string filename = "../../20-Aug-2015.zip";
 
-            //ExcelImproter.ImportToMssql(filename, db);
+            ExcelImproter.ImportToMssql(filename, db);
             //MongoDbImporter.Connect();
 
             var partsReporter = new MySqlData();
 
-            //MySqlSeed.Seed(partsReporter);
+            MySqlSeed.Seed(partsReporter);
 
             var sqlite = new PartsReportsEntities();
 
