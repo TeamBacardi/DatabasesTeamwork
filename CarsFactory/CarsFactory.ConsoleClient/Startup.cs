@@ -1,6 +1,8 @@
 ﻿using System;
 using CarsFactory.Data;
 using CarsFactory.MongoDB;
+using CarsFactory.Excel;
+using CarsFactory.MySql;
 
 namespace CarsFactory.ConsoleClient
 {
@@ -8,9 +10,16 @@ namespace CarsFactory.ConsoleClient
     {
         public static void Main()
         {
-            var db = new CarsFactoryDbContext();
+            //var db = new CarsFactoryDbContext();
 
-            MongoDbImporter.Connect();
+            //string filename = "../../20-Aug-2015";
+
+            //ExcelImproter.ImportToMssql(filename, db);
+            //MongoDbImporter.Connect();
+
+            var reporter = new MySqlData();
+
+            MySqlSeed.Seed(reporter);
         }
     }
 }
