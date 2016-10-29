@@ -1,0 +1,35 @@
+﻿using CarsFactory.MySql.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Telerik.OpenAccess.Metadata;
+using Telerik.OpenAccess.Metadata.Fluent;
+
+namespace CarsFactory.MySql
+{
+    public class MySqlModelConfiguration : FluentMetadataSource
+    {
+        protected override IList<MappingConfiguration> PrepareMapping()
+        {
+            List<MappingConfiguration> configurations = new List<MappingConfiguration>();
+
+            var shopReports = new MappingConfiguration<ShopReport>();
+
+            shopReports.HasProperty(c => c.Id).IsIdentity(KeyGenerator.Autoinc);
+
+            shopReports.MapType(report => new
+            {
+                // Id = report.Id,
+                ShopName = report.ShopName,
+                Profit = report.Profit
+                
+            }).ToTable("shop-reports");
+
+            configurations.Add(shopReports);
+
+            return configurations;
+        }
+    }
+}

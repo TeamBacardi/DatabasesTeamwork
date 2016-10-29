@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsFactory.MongoDB", "Cars
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsFactory.DesktopClient", "CarsFactory.DesktopClient\CarsFactory.DesktopClient.csproj", "{CCFCAE0A-155E-4958-99DD-8C3F2E969A12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsFactory.MySql", "CarsFactory.MySql\CarsFactory.MySql.csproj", "{259F79A7-AB89-415E-B148-4187E067CB0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{CCFCAE0A-155E-4958-99DD-8C3F2E969A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCFCAE0A-155E-4958-99DD-8C3F2E969A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCFCAE0A-155E-4958-99DD-8C3F2E969A12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{259F79A7-AB89-415E-B148-4187E067CB0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{259F79A7-AB89-415E-B148-4187E067CB0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{259F79A7-AB89-415E-B148-4187E067CB0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{259F79A7-AB89-415E-B148-4187E067CB0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
