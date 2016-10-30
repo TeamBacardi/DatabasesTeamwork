@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsFactory.DesktopClient",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsFactory.MySql", "CarsFactory.MySql\CarsFactory.MySql.csproj", "{259F79A7-AB89-415E-B148-4187E067CB0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsFactory.Sqlite", "CarsFactory.Sqlite\CarsFactory.Sqlite.csproj", "{E199FD22-00FC-4D2F-ADFF-5048B465032E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsFactory.Sqlite", "CarsFactory.Sqlite\CarsFactory.Sqlite.csproj", "{EDDB28C0-1648-45C7-A901-4D9D5FB302D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,10 +59,10 @@ Global
 		{259F79A7-AB89-415E-B148-4187E067CB0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{259F79A7-AB89-415E-B148-4187E067CB0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{259F79A7-AB89-415E-B148-4187E067CB0E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E199FD22-00FC-4D2F-ADFF-5048B465032E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E199FD22-00FC-4D2F-ADFF-5048B465032E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E199FD22-00FC-4D2F-ADFF-5048B465032E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E199FD22-00FC-4D2F-ADFF-5048B465032E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDDB28C0-1648-45C7-A901-4D9D5FB302D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDDB28C0-1648-45C7-A901-4D9D5FB302D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDDB28C0-1648-45C7-A901-4D9D5FB302D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDDB28C0-1648-45C7-A901-4D9D5FB302D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
