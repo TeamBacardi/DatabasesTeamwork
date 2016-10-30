@@ -28,7 +28,7 @@ namespace CarsFactory.ConsoleClient
             var sqlite = new ExpensesEntities();
 
             // change the password
-            var mysqlContex = new MySqlContext("server = localhost; database = carsfactory; uid = root; pwd =123456; ");
+            var mysqlContex = new MySqlContext("server = localhost; database = carsfactory; uid = root; pwd =9409; ");
             ExcelExporter.Generate(sqlite, mysqlContex);
         }
     }

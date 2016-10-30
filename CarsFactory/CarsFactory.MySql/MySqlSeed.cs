@@ -1,7 +1,9 @@
 ﻿using CarsFactory.Data;
 using CarsFactory.MySql.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using Utils;
 
 namespace CarsFactory.MySql
 {
@@ -10,28 +12,31 @@ namespace CarsFactory.MySql
         public static void Seed(MySqlData mySqlData)
         {
             var db = new CarsFactoryDbContext();
-            var randomTurnOverGenerator = GetRandomTurnOver();
 
-                var reports = db.Shops
-                .Select(s => new ShopReport
+            var shops = db.Shops.ToList();
+            var reports = new List<ShopReport>();
+            IRandomProvider randomProvider = new RandomProvider();
+
+            for (int i = 0; i < shops.Count; i++)
+            {
+                var shop = shops[i];
+                var shopName = shop.Name;
+                var turnOver = randomProvider.GetRandomInRange(25000, 50000);
+
+                var report = new ShopReport()
                 {
-                    ShopName = s.Name,
-                    TurnOver = randomTurnOverGenerator
-                })
-                .ToList();
+                    ShopName = shopName,
+                    TurnOver = turnOver
+                };
+
+                reports.Add(report);
+            };
 
             Console.WriteLine("Seeding of Shops entries into MySql Db initialized.");
             //// mySqlData.SalesReport.DeleteAllReports();
             mySqlData.ShopReports.AddMany(reports);
             mySqlData.ShopReports.SaveChanges();
             Console.WriteLine("Seeding of Shops entries completed!");
-        }
-
-        private static int GetRandomTurnOver()
-        {
-            var random = new Random();
-            var number = random.Next(30000, 100000);
-            return number;
         }
     }
 }

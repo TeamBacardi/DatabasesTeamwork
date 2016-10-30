@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsFactory.MySql", "CarsFa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsFactory.Sqlite", "CarsFactory.Sqlite\CarsFactory.Sqlite.csproj", "{EDDB28C0-1648-45C7-A901-4D9D5FB302D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{FC50E6ED-F237-4B97-9428-C44A68A5858F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{EDDB28C0-1648-45C7-A901-4D9D5FB302D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDDB28C0-1648-45C7-A901-4D9D5FB302D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDDB28C0-1648-45C7-A901-4D9D5FB302D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC50E6ED-F237-4B97-9428-C44A68A5858F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC50E6ED-F237-4B97-9428-C44A68A5858F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC50E6ED-F237-4B97-9428-C44A68A5858F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC50E6ED-F237-4B97-9428-C44A68A5858F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
