@@ -21,9 +21,9 @@ namespace CarsFactory.Excel
             Spreadsheet document = new Spreadsheet();
             Worksheet sheet = document.Workbook.Worksheets.Add("ShopReport");
             sheet.Cell(0, 0).Value = "ShopName";
-            sheet.Cell(0, 1).Value = "TurnOver";
-            sheet.Cell(0, 2).Value = "RentExpenses";
-            sheet.Cell(0, 3).Value = "SalaryExpenses";
+            sheet.Cell(0, 1).Value = "Profit";
+            sheet.Cell(0, 2).Value = "DATE";
+            sheet.Cell(0, 3).Value = "SOLD LAPTOPS COUNT";
 
             Color headerColor = Color.FromArgb(75, 172, 198);
             sheet.Cell(0, 0).FillPattern = PatternStyle.Solid;
@@ -42,9 +42,12 @@ namespace CarsFactory.Excel
 
             var shopReports = mySqlContext.GetAll<ShopReport>().ToList();
             var row = 1;
-
             var partReports = expensesEntities.Expenses.ToList();
 
+            var incomeFromPartSales = new List<decimal>() ;
+            foreach (var item in partReports)
+            {
+            }
 
             foreach (var report in shopReports)
             {

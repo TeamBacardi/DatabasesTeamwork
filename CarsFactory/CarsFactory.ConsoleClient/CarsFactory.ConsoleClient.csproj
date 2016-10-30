@@ -125,7 +125,7 @@
       <Name>CarsFactory.MySql</Name>
     </ProjectReference>
     <ProjectReference Include="..\CarsFactory.Sqlite\CarsFactory.Sqlite.csproj">
-      <Project>{EDDB28C0-1648-45C7-A901-4D9D5FB302D2}</Project>
+      <Project>{e199fd22-00fc-4d2f-adff-5048b465032e}</Project>
       <Name>CarsFactory.Sqlite</Name>
     </ProjectReference>
   </ItemGroup>
