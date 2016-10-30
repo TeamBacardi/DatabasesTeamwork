@@ -1,10 +1,7 @@
 ﻿using CarsFactory.Data;
 using CarsFactory.MySql.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarsFactory.MySql
 {
@@ -15,7 +12,7 @@ namespace CarsFactory.MySql
             var db = new CarsFactoryDbContext();
             var randomTurnOverGenerator = GetRandomTurnOver();
 
-            var reports = db.Shops
+                var reports = db.Shops
                 .Select(s => new ShopReport
                 {
                     ShopName = s.Name,
@@ -33,8 +30,7 @@ namespace CarsFactory.MySql
         private static int GetRandomTurnOver()
         {
             var random = new Random();
-
-            var number = random.Next(1000, 30000);
+            var number = random.Next(30000, 100000);
             return number;
         }
     }
