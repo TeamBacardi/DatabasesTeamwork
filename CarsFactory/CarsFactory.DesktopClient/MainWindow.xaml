@@ -7,9 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="ExcelImportButton" Content="Import Excel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="41,53,0,0" Click="ExcelImportButton_Click"/>
-        <Button x:Name="SeedMongoDb" Content="Seed MongoDb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="330,53,0,0" Click="SeedMongoDb_Click"/>
-        <Button x:Name="TransferFromMongoToMsSql" Content="Transfer to mssql" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Margin="330,98,0,0" Click="TransferFromMongoToMsSql_Click"/>
+        <Button x:Name="ExcelImportButton" Content="Import Excel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="188,146,0,0" Click="ExcelImportButton_Click"/>
 
     </Grid>
 </Window>

@@ -14,7 +14,6 @@ namespace CarsFactory.Data
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<CarsFactoryDbContext, Configuration>());
 
         }
-
         public IDbSet<Shop> Shops { get; set; }
         
         public IDbSet<Car> Cars { get; set; }

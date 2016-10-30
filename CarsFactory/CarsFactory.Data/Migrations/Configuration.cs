@@ -30,15 +30,15 @@ namespace CarsFactory.Data.Migrations
 
 
 
-            //context.Cars.AddOrUpdate(
-            //    c => c.Model,
-            //    new Car { Model = "Astra" },
-            //    new Car { Model = "Lancer" });
+            context.Cars.AddOrUpdate(
+                c => c.Model,
+                new Car { Model = "Astra" },
+                new Car { Model = "Lancer" });
 
-            //context.Shops.AddOrUpdate(
-            //    s => s.Name,
-            //    new Shop { Name = "Banishora" },
-            //    new Shop { Name = "Gorublqne" });
+            context.Shops.AddOrUpdate(
+                s => s.Name,
+                new Shop { Name = "Banishora" },
+                new Shop { Name = "Gorublqne" });
         }
     }
 }

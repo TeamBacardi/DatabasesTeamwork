@@ -143,10 +143,6 @@
       <Project>{DCF8030C-9591-4945-97AB-0E0C4EAD2A30}</Project>
       <Name>CarsFactory.Excel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CarsFactory.MongoDB\CarsFactory.MongoDB.csproj">
-      <Project>{F3C36B0B-EA50-447A-9811-9A33E559945A}</Project>
-      <Name>CarsFactory.MongoDB</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\" />

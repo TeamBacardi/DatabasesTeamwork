@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CarsFactory.Data;
 using CarsFactory.Excel;
-using CarsFactory.MongoDB;
 using Microsoft.Win32;
 
 namespace CarsFactory.DesktopClient
@@ -25,7 +24,6 @@ namespace CarsFactory.DesktopClient
     public partial class MainWindow : Window
     {
         private CarsFactoryDbContext dbContext = new CarsFactoryDbContext();
-
         public MainWindow()
         {
             InitializeComponent();
@@ -47,39 +45,10 @@ namespace CarsFactory.DesktopClient
             {
                 string filename = fileDialog.FileName;
 
-                var excelImporter = new ExcelImproter(dbContext);
-                excelImporter.ImportToMssql(filename);
+                ExcelImproter.ImportToMssql(filename, dbContext);
 
                 MessageBox.Show("magic has happened");
             }
-        }
-
-        private void SeedMongoDb_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                var mongodb = new MongoDbSeeder();
-                mongodb.ConnectAndSeed();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-            MessageBox.Show("More magic and unicorns.");
-        }
-
-        private void TransferFromMongoToMsSql_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                var mongoImporter = new MongoDbImporter(dbContext);
-                mongoImporter.Transfer();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-            MessageBox.Show("MOOORE MAGIC");
         }
     }
 }
