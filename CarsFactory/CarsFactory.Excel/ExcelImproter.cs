@@ -11,7 +11,7 @@ using CarsFactory.Models;
 
 namespace CarsFactory.Excel
 {
-    public static class ExcelImproter
+    public class ExcelImproter
     {
         private const string PathToExctract = @"../Extracted";
         private static readonly DirectoryInfo DirectoryInfo = new DirectoryInfo(PathToExctract);
@@ -20,10 +20,17 @@ namespace CarsFactory.Excel
         private const string OleDbConnectionString =
             "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0;HDR=YES;IMEX=1;'";
 
-        public static void ImportToMssql(string archivePath, CarsFactoryDbContext dbContext)
+        private readonly CarsFactoryDbContext CarsFactoryDbContext;
+
+        public ExcelImproter(CarsFactoryDbContext dbContext)
+        {
+            CarsFactoryDbContext = dbContext;
+        }
+
+        public void ImportToMssql(string archivePath)
         {
             UnzipArchive(archivePath);
-            IterateDirectory(DirectoryInfo, dbContext);
+            IterateDirectory(DirectoryInfo, CarsFactoryDbContext);
             ClearExtracredDirecotry();
         }
 
@@ -34,7 +41,6 @@ namespace CarsFactory.Excel
 
         private static void ClearExtracredDirecotry()
         {
-
             foreach (DirectoryInfo dir in DirectoryInfo.GetDirectories())
             {
                 dir.Delete(true);
@@ -45,12 +51,10 @@ namespace CarsFactory.Excel
         {
             DirectoryInfo[] childDirectories = directory.GetDirectories();
 
-
             foreach (DirectoryInfo dir in childDirectories)
             {
                 IterateDirectory(dir, db);
             }
-
 
             string currectDocumentDate = directory.Name;
 

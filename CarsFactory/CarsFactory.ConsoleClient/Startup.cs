@@ -13,20 +13,23 @@ namespace CarsFactory.ConsoleClient
         {
             var db = new CarsFactoryDbContext();
 
-            string filename = "../../20-Aug-2015.zip";
+            //string filename = "../../20-Aug-2015.zip";
 
-            ExcelImproter.ImportToMssql(filename, db);
-            //MongoDbImporter.Connect();
+            //var excelImporter = new ExcelImproter(db);
+            //excelImporter.ImportToMssql(filename);
+
+            //var mongo = new MongoDbImporter(db);
+            //mongo.Transfer();
 
             var partsReporter = new MySqlData();
 
-            MySqlSeed.Seed(partsReporter);
+           MySqlSeed.Seed(partsReporter);
 
-            var sqlite = new PartsReportsEntities();
+            //var sqlite = new PartsReportsEntities();
 
             // change the password
-            var mysqlContex = new MySqlContext("server = localhost; database = carsfactory; uid = root; pwd =9409; ");
-            ExcelExporter.Generate(sqlite, mysqlContex);
+            //var mysqlContex = new MySqlContext("server = localhost; database = carsfactory; uid = root; pwd =9208266264s; ");
+            //ExcelExporter.Generate(sqlite, mysqlContex);
         }
     }
 }
