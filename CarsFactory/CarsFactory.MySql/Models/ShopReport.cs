@@ -12,6 +12,7 @@ namespace CarsFactory.MySql.Models
 
         public string ShopName { get; set; }
 
-        public decimal Profit { get; set; }
+        public decimal TurnOver { get; set; }
+
     }
 }

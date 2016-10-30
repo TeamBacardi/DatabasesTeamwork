@@ -16,13 +16,13 @@ namespace CarsFactory.ConsoleClient
             string filename = "../../20-Aug-2015.zip";
 
             ExcelImproter.ImportToMssql(filename, db);
-            //MongoDbImporter.Connect();
+            //MongoDbSeeder.ConnectAndSeed();
 
             var partsReporter = new MySqlData();
 
             MySqlSeed.Seed(partsReporter);
 
-            var sqlite = new PartsReportsEntities();
+            var sqlite = new ExpensesEntities();
 
             // change the password
             var mysqlContex = new MySqlContext("server = localhost; database = carsfactory; uid = root; pwd =9409; ");

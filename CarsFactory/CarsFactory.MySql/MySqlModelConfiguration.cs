@@ -23,7 +23,8 @@ namespace CarsFactory.MySql
             {
                 // Id = report.Id,
                 ShopName = report.ShopName,
-                Profit = report.Profit
+                
+                TurnOver = report.TurnOver
                 
             }).ToTable("shop-reports");
 

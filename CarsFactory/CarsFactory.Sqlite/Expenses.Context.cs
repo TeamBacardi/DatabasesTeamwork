@@ -13,10 +13,10 @@ namespace CarsFactory.Sqlite
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PartsReportsEntities : DbContext
+    public partial class ExpensesEntities : DbContext
     {
-        public PartsReportsEntities()
-            : base("name=PartsReportsEntities")
+        public ExpensesEntities()
+            : base("name=ExpensesEntities")
         {
         }
     
@@ -25,6 +25,6 @@ namespace CarsFactory.Sqlite
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<PartsReports> PartsReports { get; set; }
+        public virtual DbSet<Expenses> Expenses { get; set; }
     }
 }
