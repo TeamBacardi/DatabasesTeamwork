@@ -20,7 +20,7 @@ namespace CarsFactory.MongoDB
         /// <summary>
         /// This method only seeds a clean db, if it's populated it will throw silently
         /// </summary>
-        public static void ConnectAndSeed()
+        public void ConnectAndSeed()
         {
             client = new MongoClient();
 

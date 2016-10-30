@@ -20,12 +20,12 @@ namespace CarsFactory.ConsoleClient
 
             //var mongo = new MongoDbImporter(db);
             //mongo.Transfer();
-            ExcelImproter.ImportToMssql(filename, db);
+
             //MongoDbSeeder.ConnectAndSeed();
 
             var partsReporter = new MySqlData();
 
-           MySqlSeed.Seed(partsReporter);
+            MySqlSeed.Seed(partsReporter);
 
             //var sqlite = new PartsReportsEntities();
 
