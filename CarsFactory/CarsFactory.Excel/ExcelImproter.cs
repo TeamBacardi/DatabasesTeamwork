@@ -29,7 +29,15 @@ namespace CarsFactory.Excel
 
         private static void UnzipArchive(string path)
         {
-            ZipFile.ExtractToDirectory(path, PathToExctract);
+            try
+            {
+                ZipFile.ExtractToDirectory(path, PathToExctract);
+            }
+            catch (Exception)
+            {
+                Directory.Delete(PathToExctract, true);
+                UnzipArchive(path);
+            }          
         }
 
         private static void ClearExtracredDirecotry()
@@ -69,7 +77,7 @@ namespace CarsFactory.Excel
                         db.Sales.Add(sale);
                         saleReport.Sales.Add(sale);
                         saleReport.Date = DateTime.Parse(currectDocumentDate);
-                        saleReport.Name = $"Report for shop: {sale.Shop.Name}";
+                        saleReport.Name = $"Report for SaleReport: {sale.SaleReportId}";
                     }
 
                     db.SaleReports.Add(saleReport);
@@ -117,9 +125,6 @@ namespace CarsFactory.Excel
 
         private static Sale CreateSale(DataRow row, CarsFactoryDbContext dbContext)
         {
-            var shopId = int.Parse(row["ShopId"].ToString());
-            var shop = dbContext.Shops.FirstOrDefault(s => s.Id == shopId);
-
             var carId = int.Parse(row["CarId"].ToString());
             var car = dbContext.Cars.FirstOrDefault(c => c.Id == carId);
 
@@ -132,8 +137,6 @@ namespace CarsFactory.Excel
 
             var sale = new Sale
             {
-                ShopId = shopId,
-                Shop = shop,
                 Car = car,
                 //Part = part,
                 CarId = carId,

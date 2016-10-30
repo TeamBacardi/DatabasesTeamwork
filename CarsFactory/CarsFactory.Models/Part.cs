@@ -15,10 +15,9 @@ namespace CarsFactory.Models
         [Required]
         public int Weight { get; set; }
 
-        //[ForeignKey("Car")]
-        //public int CarId { get; set; }
+        public int? CarId { get; set; }
 
-        //public virtual Car Car { get; set; }
+        public virtual Car Car { get; set; }
 
         [Required]
         public decimal Price { get; set; }

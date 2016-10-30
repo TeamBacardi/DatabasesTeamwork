@@ -19,7 +19,7 @@ namespace CarsFactory.MySql
             : base(connectionString, BackendConfig, MetaDataConfig)
         {
         }
-
+       
         private static BackendConfiguration GetBackEndConfig()
         {
             var config = new BackendConfiguration();

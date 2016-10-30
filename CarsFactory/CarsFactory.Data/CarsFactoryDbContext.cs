@@ -1,10 +1,11 @@
 using System.Data.Entity;
 using CarsFactory.Data.Migrations;
 using CarsFactory.Models;
+using CarsFactory.Data.Contracts;
 
 namespace CarsFactory.Data
 {
-    public class CarsFactoryDbContext : DbContext
+    public class CarsFactoryDbContext : DbContext, ICarsFactoryDbContext
     {
         private const string CarsFactoryDatabaseName = "CarParts";
 

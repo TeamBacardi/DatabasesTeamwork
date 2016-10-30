@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,10 @@ namespace CarsFactory.Models
 
         public SaleReport()
         {
-            this.sales = new List<Sale>();
+            this.sales = new HashSet<Sale>();
         }
 
-        [Key]
+        [Key, ForeignKey("Shop")]
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -28,5 +29,9 @@ namespace CarsFactory.Models
             get { return this.sales; }
             set { this.sales = value; }
         }
+
+        public int? ShopId { get; set; }
+
+        public virtual Shop Shop { get; set; }
     }
 }
