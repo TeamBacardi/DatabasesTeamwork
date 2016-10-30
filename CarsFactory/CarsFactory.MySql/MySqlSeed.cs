@@ -13,12 +13,13 @@ namespace CarsFactory.MySql
         public static void Seed(MySqlData mySqlData)
         {
             var db = new CarsFactoryDbContext();
+            var randomTurnOverGenerator = GetRandomTurnOver();
 
             var reports = db.Shops
                 .Select(s => new ShopReport
                 {
                     ShopName = s.Name,
-                    Profit = 252
+                    TurnOver = randomTurnOverGenerator
                 })
                 .ToList();
 
@@ -29,11 +30,11 @@ namespace CarsFactory.MySql
             Console.WriteLine("Seeding of Shops entries completed!");
         }
 
-        private static int GetRandom()
+        private static int GetRandomTurnOver()
         {
             var random = new Random();
 
-            var number = random.Next(1000, 2000);
+            var number = random.Next(1000, 30000);
             return number;
         }
     }

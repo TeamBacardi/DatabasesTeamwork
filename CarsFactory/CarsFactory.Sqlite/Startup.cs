@@ -11,22 +11,17 @@ namespace CarsFactory.Sqlite
     {
         static void Main(string[] args)
         {
-            var db = new PartsReportsEntities();
+            var db = new ExpensesEntities();
 
-            db.PartsReports.Add(new PartsReports()
+            db.Expenses.Add(new Expenses()
             {
-                Id = 23123,
-                PartName = "Test",
-                Price = 22,
-                Quaintity = 100
+
             });
 
-            db.SaveChanges();
-            var parts = db.PartsReports.ToList();
-
-            foreach (var item in parts)
+            var ex = db.Expenses.ToList();
+            foreach (var item in ex)
             {
-                Console.WriteLine(item.PartName);
+              
             }
         }
     }

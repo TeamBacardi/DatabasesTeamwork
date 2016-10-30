@@ -12,11 +12,11 @@ namespace CarsFactory.Sqlite
     using System;
     using System.Collections.Generic;
     
-    public partial class PartsReports
+    public partial class Expenses
     {
         public long Id { get; set; }
-        public string PartName { get; set; }
-        public Nullable<long> Quaintity { get; set; }
-        public Nullable<double> Price { get; set; }
+        public Nullable<long> ShopId { get; set; }
+        public Nullable<double> SalaryExpenses { get; set; }
+        public Nullable<double> RentExpenses { get; set; }
     }
 }
