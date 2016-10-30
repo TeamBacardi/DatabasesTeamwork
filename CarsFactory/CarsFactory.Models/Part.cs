@@ -14,7 +14,7 @@ namespace CarsFactory.Models
 
         [Required]
         public int Weight { get; set; }
-
+        
         public int? CarId { get; set; }
 
         public virtual Car Car { get; set; }

@@ -71,14 +71,48 @@ namespace CarsFactory.Excel
 
                 try
                 {
+                    int biggestSaleId = 0;
+                    foreach (var salesReport in db.Sales)
+                    {
+                        if (saleReport.Id > biggestSaleId)
+                        {
+                            biggestSaleId = saleReport.Id;
+                        }
+                    }
+
+                    int index = 0;
                     foreach (DataRow row in data.Rows)
                     {
                         Sale sale = CreateSale(row, db);
+                        sale.Id = biggestSaleId + index++;
                         db.Sales.Add(sale);
                         saleReport.Sales.Add(sale);
                         saleReport.Date = DateTime.Parse(currectDocumentDate);
-                        saleReport.Name = $"Report for SaleReport: {sale.SaleReportId}";
+                        saleReport.Name = $"Report for SaleReport: {sale.Id}";
                     }
+
+                    int biggestId = 1;
+
+                    foreach (var salesReport in db.SaleReports)
+                    {
+                        if (saleReport.Id > biggestId)
+                        {
+                            biggestId = saleReport.Id;
+                        }
+                    }
+
+                    var shop = new Shop()
+                    {
+                        Name = "Excell Made Shop"
+                    };
+
+                    saleReport.Shop = shop;
+
+                    shop.SaleReport = saleReport;
+
+                    saleReport.Id = biggestId + 1;
+
+                    db.Shops.Add(shop);
 
                     db.SaleReports.Add(saleReport);
                     db.SaveChanges();
@@ -139,7 +173,6 @@ namespace CarsFactory.Excel
             {
                 Car = car,
                 //Part = part,
-                CarId = carId,
                 //PartId = partId,
                 Price = price,
                 Quantity = quantity,

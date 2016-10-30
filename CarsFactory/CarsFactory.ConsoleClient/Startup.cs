@@ -4,6 +4,7 @@ using CarsFactory.MongoDB;
 using CarsFactory.Excel;
 using CarsFactory.MySql;
 using CarsFactory.Sqlite;
+using CarsFactory.Models;
 
 namespace CarsFactory.ConsoleClient
 {
@@ -12,6 +13,8 @@ namespace CarsFactory.ConsoleClient
         public static void Main()
         {
             var db = new CarsFactoryDbContext();
+
+            db.Database.CreateIfNotExists();
 
             string filename = "../../20-Aug-2015.zip";
 

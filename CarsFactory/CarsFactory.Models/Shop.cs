@@ -16,8 +16,8 @@ namespace CarsFactory.Models
         {
             this.cars = new HashSet<Car>();
         }
-
-        [Key, ForeignKey("SaleReport")]
+        
+        [Key]
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -27,8 +27,6 @@ namespace CarsFactory.Models
             get { return this.cars; }
             set { this.cars = value; }
         }
-
-        public int? SaleReportId { get; set; }
 
         public virtual SaleReport SaleReport { get; set; }
     }

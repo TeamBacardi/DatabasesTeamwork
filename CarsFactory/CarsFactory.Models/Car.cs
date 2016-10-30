@@ -6,7 +6,14 @@ namespace CarsFactory.Models
 {
     public class Car
     {
-        [Key, ForeignKey("Sale")]
+        private ICollection<Part> parts;
+
+        public Car()
+        {
+            this.parts = new HashSet<Part>();
+        }
+
+        [Key]
         public int Id { get; set; }
 
         [Required]
@@ -17,15 +24,17 @@ namespace CarsFactory.Models
         public string Details { get; set; }
         
         public decimal? Price { get; set; }
-
-        public int? SaleId { get; set; }
-
+        
         public virtual Sale Sale { get; set; }
 
         public int ShopId { get; set; }
 
         public virtual Shop Shop { get; set; }
 
-        public virtual ICollection<Part> Parts { get; set; }
+        public virtual ICollection<Part> Parts
+        {
+            get { return this.parts; }
+            set { this.parts = value; }
+        }
     }
 }
