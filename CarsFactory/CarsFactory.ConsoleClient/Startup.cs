@@ -5,6 +5,7 @@ using CarsFactory.Excel;
 using CarsFactory.MySql;
 using CarsFactory.Sqlite;
 using CarsFactory.Models;
+using CarsFactory.XML;
 
 namespace CarsFactory.ConsoleClient
 {
@@ -28,8 +29,11 @@ namespace CarsFactory.ConsoleClient
             var sqlite = new ExpensesEntities();
 
             // change the password
-            var mysqlContex = new MySqlContext("server = localhost; database = carsfactory; uid = root; pwd =9409; ");
+            var mysqlContex = new MySqlContext("server = localhost; database = carsfactory; uid = root; pwd =123456; ");
             ExcelExporter.Generate(sqlite, mysqlContex);
+
+            XMLPopulatorEngine xmlPopulator = new XMLPopulatorEngine(db);
+            xmlPopulator.Start();
         }
     }
 }
