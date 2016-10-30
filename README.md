@@ -1,66 +1,460 @@
-# Databases
+# Databases October 2016
+## Practical Teamwork Project
 
-Repository for the course [Databases](http://telerikacademy.com/Courses/Courses/Details/388) at [Telerik Academy](https://telerikacademy.com)
+* A factory of your choice holds information about its products in MongoDB database consisting of at least 3 tables.
+* For example you may have the following schema for beer factory:
 
-## Course program
+#### Products
 
-### [00. Databases-Course-Introduction](./Topics/00. Databases-Course-Introduction)
+| ID | VendorID |     Product Name    | MeasureID | Base Price |
+|----|----------|---------------------|-----------|------------|
+| 1  | 20       | Beer “Zagorka”      | 100       | 0.86       |
+| 2  | 30       | Vodka “Targovishte” | 100       | 7.56       |
+| 3  | 20       | Beer “Beck’s”       | 100       | 1.03       |
+| 4  | 10       | Chocolate “Milka”   | 200       | 2.80       |
+| …  | …        | …                   | …         | …          |
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/00.%20Databases-Course-Introduction/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/00.%20Databases-Course-Introduction/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/00.%20Databases-Course-Introduction/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/00.%20Databases-Course-Introduction/VIDEOS.md)
-### [01. XML-Basics](./Topics/01. XML-Basics)
+#### Vendors
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/01.%20XML-Basics/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/01.%20XML-Basics/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/01.%20XML-Basics/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/01.%20XML-Basics/VIDEOS.md)
-### [02. Processing-XML-in-.NET](./Topics/02. Processing-XML-in-.NET)
+| ID |             Vendor Name             |
+|----|-------------------------------------|
+| 10 | Nestle Sofia Corp.                  |
+| 20 | Zagorka Corp.                       |
+| 30 | Targovishte Bottling Company   Ltd. |
+| …  | …                                   |
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/02.%20Processing-XML-in-.NET/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/02.%20Processing-XML-in-.NET/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/02.%20Processing-XML-in-.NET/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/02.%20Processing-XML-in-.NET/VIDEOS.md)
-### [03. Processing-JSON-in-.NET](./Topics/03. Processing-JSON-in-.NET)
+#### Measures
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/03.%20Processing-JSON-in-.NET/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/03.%20Processing-JSON-in-.NET/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/03.%20Processing-JSON-in-.NET/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/03.%20Processing-JSON-in-.NET/VIDEOS.md)
-### [04. Database-Systems-Overview](./Topics/04. Database-Systems-Overview)
+| ID  | Measure Name |
+|-----|--------------|
+| 100 | liters       |
+| 200 | pieces       |
+| …   | …            |
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/04.%20Database-Systems-Overview/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/04.%20Database-Systems-Overview/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/04.%20Database-Systems-Overview/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/04.%20Database-Systems-Overview/VIDEOS.md)
-### [05. SQL-Server-and-MySQL-Introduction](./Topics/05. SQL-Server-and-MySQL-Introduction)
+* Do not use the provided example but think of another case. Create your tables with at least 4 columns and try to be creative (it will be part of your final score). For testing purposes please fill between 10 and 50 records in each table. Try to use real-world data. You may use sequential IDs for the primary key or any other primary key notation.
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/05.%20SQL-Server-and-MySQL-Introduction/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/05.%20SQL-Server-and-MySQL-Introduction/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/05.%20SQL-Server-and-MySQL-Introduction/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/05.%20SQL-Server-and-MySQL-Introduction/VIDEOS.md)
-### [06. Database-Modeling](./Topics/06. Database-Modeling)
+## Assignment
+* Your assignment is to design, develop and test a C# application for importing Excel reports from a ZIP file and the product data from MongoDB into SQL Server, generate XML reports and PDF reports, create reports as JSON documents and also load them into MySQL, load additional information by your choice from XML file, read other information by your choice from SQLite and calculate aggregated results and write them into Excel file:
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/06.%20Database-Modeling/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/06.%20Database-Modeling/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/06.%20Database-Modeling/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/06.%20Database-Modeling/VIDEOS.md)
-### [07. Intro-to-SQL](./Topics/07. Intro-to-SQL)
+![project](https://cloud.githubusercontent.com/assets/3619393/10135708/e4b681d4-65f8-11e5-9243-0aea8fa008eb.png)
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/07.%20Intro-to-SQL/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/07.%20Intro-to-SQL/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/07.%20Intro-to-SQL/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/07.%20Intro-to-SQL/VIDEOS.md)
-### [08. Advanced-SQL](./Topics/08. Advanced-SQL)
+* All reports should be different from each other and are by your choice. They can be sales reports, taxes reports, vendor reports, etc. Try to use real-world example.
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/08.%20Advanced-SQL/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/08.%20Advanced-SQL/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/08.%20Advanced-SQL/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/08.%20Advanced-SQL/VIDEOS.md)
-### [09. Transact-SQL](./Topics/09. Transact-SQL)
+## Problem 1 - Load Excel Reports from ZIP File
+* Your task is to write a C# program to **load Excel in MS SQL Server**. You may need to preliminary design a database schema to hold all data about the products (data from the MongoDB database and data from the Excel files) or use the "code-first" approach to move the DB schema from MongoDB to SQL Server. Your C# program should also move the products data from MongoDB to SQL Server.
+* The Excel files are given inside a **ZIP archive** holding subfolders named as the dates of the report in format **dd-MMM-yyyy** (see the example reports archive [Sample-Sales-Reports.zip](/21.%20Databases%20Team%20Work%20Project/2015/Sample-Sales-Reports.zip?raw=true)).
+* Note that the ZIP file could contain few hundred dates (folders), each holding few hundreds Excel files, each holding thousands of data.
+* **Input**: MongoDB database; ZIP file with Excel 2003 reports.
+* **Output:** data loaded in the SQL Server database.
+* _For example:_
+  * you may have the **MongoDB database “Supermarket”** holding information about some vendors and some products and a **set of Excel files** (*.xls) holding information about the sales in the different super¬markets.
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/09.%20Transact-SQL/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/09.%20Transact-SQL/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/09.%20Transact-SQL/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/09.%20Transact-SQL/VIDEOS.md)
-### [10. ADO.NET](./Topics/10. ADO.NET)
+## Problem 2 - Generate PDF Reports
+* Your task is to generate a PDF reports summarizing information from the SQL Server.
+* _For example:_
+  * the PDF report may contain a table like the sample below:
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/10.%20ADO.NET/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/10.%20ADO.NET/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/10.%20ADO.NET/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/10.%20ADO.NET/VIDEOS.md)
-### [11. Entity-Framework](./Topics/11. Entity-Framework)
+<table>
+    <tr>
+        <td colspan="5"><strong>Aggregated Sales Report</strong></td>
+    </tr>
+    <tr>
+        <td colspan="5">Date: 20-Jul-2013</td>
+    </tr>
+    <tr>
+        <td><strong>Product</strong></td>
+        <td><strong>Quantity</strong></td>
+        <td><strong>Unit Price</strong></td>
+        <td><strong>Location</strong></td>
+        <td><strong>Sum</strong></td>
+    </tr>
+    <tr>
+        <td>Beer "Beck’s"</td>
+        <td>40 liters</td>
+        <td>1.20</td>
+        <td>Supermarket "Kaspichan – Center"</td>
+        <td align="right">48.00</td>
+    </tr>
+    <tr>
+        <td>Beer "Zagorka"</td>
+        <td>37 liters</td>
+        <td>1.00</td>
+        <td>Supermarket "Bourgas – Plaza"</td>
+        <td align="right">37.00</td>
+    </tr>
+    <tr>
+        <td>Chocolate "Milka"</td>
+        <td>7 pieces</td>
+        <td>2.85</td>
+        <td>Supermarket "Bay Ivan" – Zmeyovo</td>
+        <td align="right">19.95</td>
+    </tr>
+    <tr>
+        <td>Vodka "Targovishte"</td>
+        <td>14 liters</td>
+        <td>8.50</td>
+        <td>Supermarket "Bourgas – Plaza"</td>
+        <td align="right">119.00</td>
+    </tr>
+    <tr>
+        <td>Chocolate "Milka"</td>
+        <td>12 pieces</td>
+        <td>2.90</td>
+        <td>Supermarket "Kaspichan – Center"</td>
+        <td align="right">34.80</td>
+    </tr>
+    <tr>
+        <td>Beer "Zagorka"</td>
+        <td>65 liters</td>
+        <td>0.92</td>
+        <td>Supermarket "Kaspichan – Center"</td>
+        <td align="right">59.80</td>
+    </tr>
+    <tr>
+        <td>Vodka "Targovishte"</td>
+        <td>4 liters</td>
+        <td>7.80</td>
+        <td>Supermarket "Bay Ivan" – Zmeyovo</td>
+        <td align="right">31.20</td>
+    </tr>
+    <tr>
+        <td>…</td>
+        <td>…</td>
+        <td>…</td>
+        <td>…</td>
+        <td>…</td>
+    </tr>
+    <tr>
+        <td colspan="4" align="right">Total sum for 20-Jul-2012:</td>
+        <td align="right"><strong>349.75</strong></td>
+    </tr>
+    <tr>
+        <td>Date: 21-Jul-2013</td>
+    </tr>
+    <tr>
+        <td><strong>Product</strong></td>
+        <td><strong>Quantity</strong></td>
+        <td><strong>Unit Price</strong></td>
+        <td><strong>Location</strong></td>
+        <td><strong>Sum</strong></td>
+    </tr>
+    <tr>
+        <td>Beer "Zagorka"</td>
+        <td>11 liters</td>
+        <td>1.00</td>
+        <td>Supermarket "Bourgas – Plaza"</td>
+        <td align="right">11.00</td>
+    </tr>
+    <tr>
+        <td>Beer "Zagorka"</td>
+        <td>78 liters</td>
+        <td>0.92</td>
+        <td>Supermarket "Kaspichan – Center"</td>
+        <td align="right">71.76</td>
+    </tr>
+    <tr>
+        <td>Beer "Zagorka"</td>
+        <td>146 liters</td>
+        <td>0.88</td>
+        <td>Supermarket "Plovdiv – Stolipinovo"</td>
+        <td align="right">128.48</td>
+    </tr>
+    <tr>
+        <td>Vodka "Targovishte"</td>
+        <td>20 liters</td>
+        <td>8.50</td>
+        <td>Supermarket "Bourgas – Plaza"</td>
+        <td align="right">170.00</td>
+    </tr>
+    <tr>
+        <td>Vodka "Targovishte"</td>
+        <td>67 liters</td>
+        <td>7.70</td>
+        <td>Supermarket "Plovdiv – Stolipinovo"</td>
+        <td align="right">515.90</td>
+    </tr>
+    <tr>
+        <td>Vodka "Targovishte"</td>
+        <td>3 liters</td>
+        <td>7.80</td>
+        <td>Supermarket "Bay Ivan" – Zmeyovo</td>
+        <td align="right">23.40</td>
+    </tr>
+    <tr>
+        <td>Beer "Beck’s"</td>
+        <td>43 liters</td>
+        <td>1.20</td>
+        <td>Supermarket "Kaspichan – Center"</td>
+        <td align="right">51.60</td>
+    </tr>
+    <tr>
+        <td>Beer "Beck’s"</td>
+        <td>75 liters</td>
+        <td>1.05</td>
+        <td>Supermarket "Plovdiv – Stolipinovo"</td>
+        <td align="right">78.75</td>
+    </tr>
+    <tr>
+        <td>Chocolate "Milka"</td>
+        <td>9 pieces</td>
+        <td>2.90</td>
+        <td>Supermarket "Kaspichan – Center"</td>
+        <td align="right">26.10</td>
+    </tr>
+    <tr>
+        <td>Chocolate "Milka"</td>
+        <td>5 pieces</td>
+        <td>2.85</td>
+        <td>Supermarket "Bay Ivan" – Zmeyovo</td>
+        <td align="right">14.25</td>
+    </tr>
+    <tr>
+        <td>…</td>
+        <td>…</td>
+        <td>…</td>
+        <td>…</td>
+        <td>…</td>
+    </tr>
+    <tr>
+        <td colspan="4" align="right">Total sum for 21-Jul-2012:</td>
+        <td colspan="4" align="right"><strong>1091.24</strong></td>
+    </tr>
+    <tr><td>Date: 22-Jul-2013</td></tr>
+    <tr>
+        <td><strong>Product</strong></td>
+        <td><strong>Quantity</strong></td>
+        <td><strong>Unit Price</strong></td>
+        <td><strong>Location</strong></td>
+        <td><strong>Sum</strong></td>
+    </tr>
+    <tr>
+        <td>Beer "Zagorka"</td>
+        <td>16.00</td>
+        <td>1.00</td>
+        <td>Supermarket "Bourgas – Plaza"</td>
+        <td align="right">16.00</td>
+    </tr>
+    <tr>
+        <td>Beer "Zagorka"</td>
+        <td>90.00</td>
+        <td>0.92</td>
+        <td>Supermarket "Kaspichan – Center"</td>
+        <td align="right">82.80</td>
+    </tr>
+    <tr>
+        <td>Beer "Zagorka"</td>
+        <td>230.00</td>
+        <td>0.88</td>
+        <td>Supermarket "Plovdiv – Stolipinovo"</td>
+        <td align="right">202.40</td>
+    </tr>
+    <tr>
+        <td>Vodka "Targovishte"</td>
+        <td>24.00</td>
+        <td>8.50</td>
+        <td>Supermarket "Bourgas – Plaza"</td>
+        <td align="right">204.00</td>
+    </tr>
+    <tr>
+        <td>Vodka "Targovishte"</td>
+        <td>12.00</td>
+        <td>7.70</td>
+        <td>Supermarket "Plovdiv – Stolipinovo"</td>
+        <td align="right">92.40</td>
+    </tr>
+    <tr>
+        <td>Beer "Beck’s"</td>
+        <td>18.00</td>
+        <td>1.20</td>
+        <td>Supermarket "Kaspichan – Center"</td>
+        <td align="right">21.60</td>
+    </tr>
+    <tr>
+        <td>Beer "Beck’s"</td>
+        <td>60.00</td>
+        <td>1.05</td>
+        <td>Supermarket "Plovdiv – Stolipinovo"</td>
+        <td align="right">63.00</td>
+    </tr>
+    <tr>
+        <td>Chocolate "Milka"</td>
+        <td>14.00</td>
+        <td>2.90</td>
+        <td>Supermarket "Kaspichan – Center"</td>
+        <td align="right">40.60</td>
+    </tr>
+    <tr>
+        <td>…</td>
+        <td>…</td>
+        <td>…</td>
+        <td>…</td>
+        <td>…</td>
+    </tr>
+    <tr>
+        <td colspan="4" align="right">Total sum for 21-Jul-2012:</td>
+        <td align="right"><strong>722.80</strong></td>
+    </tr>
+    <tr>
+        <td colspan="4" align="right">Grand total:</td>
+        <td align="right"><strong>2163.79</strong></td>
+    </tr>
+</table>
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/11.%20Entity-Framework/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/11.%20Entity-Framework/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/11.%20Entity-Framework/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/11.%20Entity-Framework/VIDEOS.md)
-### [12. Entity-Framework-Code-First](./Topics/12. Entity-Framework-Code-First)
+* A sample PDF report is also available: [Sample-Aggregated-Sales-Report.pdf](Sample-Aggregated-Sales-Report.pdf).
+* **Input**:
+  * SQL Server database
+* **Output**:
+  * PDF report
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/12.%20Entity-Framework-Code-First/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/12.%20Entity-Framework-Code-First/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/12.%20Entity-Framework-Code-First/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/12.%20Entity-Framework-Code-First/VIDEOS.md)
-### [13. Database-Transactions-Concepts](./Topics/13. Database-Transactions-Concepts)
+## Problem 3 - Generate XML Report
+* Your task is to create a C# program to **generate report in XML format** like the sample below:
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/13.%20Database-Transactions-Concepts/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/13.%20Database-Transactions-Concepts/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/13.%20Database-Transactions-Concepts/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/13.%20Database-Transactions-Concepts/VIDEOS.md)
-### [14. Database-Transactions-with-EF](./Topics/14. Database-Transactions-with-EF)
+**Sales-by-Vendors-report.xml**
+```xml
+<?xml version="1.0" encoding="utf-8">
+<sales>
+  <sale vendor="Nestle Sofia Corp.">
+    <summary date="20-Jul-2013" total-sum="54.75" />
+    <summary date="21-Jul-2013" total-sum="40.35" />
+    <summary date="22-Jul-2013" total-sum="40.60" />
+  </sale>
+  <sale vendor="Targovishte Bottling Company Ltd.">
+    <summary date="20-Jul-2013" total-sum="150.20" />
+    <summary date="21-Jul-2013" total-sum="709.30" />
+    <summary date="22-Jul-2013" total-sum="249.40" />
+  </sale>
+  <sale vendor="Zagorka Corp.">
+    <summary date="20-Jul-2013" total-sum="144.80" />
+    <summary date="21-Jul-2013" total-sum="341.59" />
+    <summary date="22-Jul-2013" total-sum="385.80" />
+  </sale>
+<sales>
+```
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/14.%20Database-Transactions-with-EF/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/14.%20Database-Transactions-with-EF/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/14.%20Database-Transactions-with-EF/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/14.%20Database-Transactions-with-EF/VIDEOS.md)
-### [15. Database-Performance](./Topics/15. Database-Performance)
+* Save the report in an “**xml**” file.
+* **Input**:
+  * SQL Server database
+* **Output**:
+  * XML report
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/15.%20Database-Performance/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/15.%20Database-Performance/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/15.%20Database-Performance/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/15.%20Database-Performance/VIDEOS.md)
-### [16. Entity-Framework-Performance](./Topics/16. Entity-Framework-Performance)
+## Problem 4 - JSON Reports
+* Your task is to write a program to create report for each product in JSON format and save all reports in MySQL. All reports may look like the sample below and should be saved in the MySQL database as well as in the file system (in a folder called “Json-Reports”, in files named “XX.json” where XX is the ID).
+* Sample product report in JSON format:
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/16.%20Entity-Framework-Performance/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/16.%20Entity-Framework-Performance/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/16.%20Entity-Framework-Performance/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/16.%20Entity-Framework-Performance/VIDEOS.md)
-### [17. NoSQL-Databases](./Topics/17. NoSQL-Databases)
+**3.json**
+```javascript
+{
+  "product-id" : 3,
+  "product-name" : "Beer “Beck’s”",
+  "vendor-name" : "Zagorka Corp.",
+  "total-quantity-sold" : 236,
+  "total-incomes" : 262.95,
+}
+```
+**1.json**
+```javascript
+{
+  "product-id" : 1,
+  "product-name" : "Beer “Zagorka”",
+  "vendor-name" : "Zagorka Corp.",
+  "total-quantity-sold" : 673,
+  "total-incomes" : 609.24,
+}
+```
+**4.json**
+```javascript
+{
+  "product-id" : 4,
+  "product-name" : "Chocolate “Milka”",
+  "vendor-name" : "Nestle Sofia Corp.",
+  "total-quantity-sold" : 47,
+  "total-incomes" : 135.70,
+}
+```
+**2.json**
+```javascript
+{
+  "product-id" : 2,
+  "product-name" : "Vodka “Targovishte”",
+  "vendor-name" : "Targovishte Bottling Company Ltd.",
+  "total-quantity-sold" : 144,
+  "total-incomes" : 1155.90,
+}
+```
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/17.%20NoSQL-Databases/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/17.%20NoSQL-Databases/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/17.%20NoSQL-Databases/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/17.%20NoSQL-Databases/VIDEOS.md)
-### [18. MongoDB-and-MongoDB-with-.NET](./Topics/18. MongoDB-and-MongoDB-with-.NET)
+* **Input**:
+  * SQL Server database
+* **Output**:
+  * a set of JSON files
+  * data loaded in MySQL database
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/18.%20MongoDB-and-MongoDB-with-.NET/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/18.%20MongoDB-and-MongoDB-with-.NET/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/18.%20MongoDB-and-MongoDB-with-.NET/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/18.%20MongoDB-and-MongoDB-with-.NET/VIDEOS.md)
-### [19. Redis-and-Redis-with-.NET](./Topics/19. Redis-and-Redis-with-.NET)
+## Problem 5 - Load data from XML
+* You must create **XML** file holding additional information by your choice.
+* _For example:_
 
-##### [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/presentation.png" height="18"/>Slides](https://rawgit.com/TelerikAcademy/Databases/master/Topics/19.%20Redis-and-Redis-with-.NET/index.html) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/code.png" height="15"> Demos](/Topics/19.%20Redis-and-Redis-with-.NET/demos) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/homework.png" height="15">Tasks](/Topics/19.%20Redis-and-Redis-with-.NET/homework) / [<img src="https://raw.githubusercontent.com/TelerikAcademy/Common/master/icons/video.png" height="15"> Videos](/Topics/19.%20Redis-and-Redis-with-.NET/VIDEOS.md)
+**Vendors-Expenses.xml**
+```xml
+<?xml version="1.0" encoding="utf-8">
+<expenses-by-month>
+  <vendor name="Nestle Sofia Corp.">
+    <expenses month="Jul-2013">30.00</expenses>
+    <expenses month="Aug-2013">40.00</expenses>
+  </vendor>
+  <vendor name="Targovishte Bottling Company Ltd.">
+    <expenses month="Jul-2013">200.00</expenses>
+    <expenses month="Aug-2013">180.00</expenses>
+  </vendor>
+  <vendor name="Zagorka Corp.">
+    <expenses month="Jul-2013">120.00</expenses>
+    <expenses month="Aug-2013">180.00</expenses>
+  </vendor>
+<expenses-by-month>
+```
+
+* Your task is to **read the XML file**, parse it and **save the data** in the **MongoDB** database and in the **SQL Server**. Please think how your database schema / document model will support the additional data.
+* **Input**:
+  * XML file
+* **Output**:
+  * data loaded in the SQL Server
+  * data loaded in the MongoDB
+
+## Problem 6 - Excel data
+* You are given a **SQLite database** holding more information for each product.
+* _For example:_
+
+|    Product Name           |    Tax    |
+|---------------------------|:---------:|
+|    Beer “Beck’s”          |    20%    |
+|    Beer “Zagorka”         |    20%    |
+|    Chocolate   “Milka”    |    18%    |
+|    Vodka “Targovishte”    |    25%    |
+
+* Write a program to **read the MySQL database** of reports, **read the information from SQLite** and generate a **single Excel** file holding some information by your choice.
+* _For example:_
+
+|    Vendor                               |    Incomes    |    Expenses    |    Taxes     |    Financial Result    |
+|-----------------------------------------|:-------------:|----------------|--------------|------------------------|
+|    Nestle Sofia Corp.                   |    135.70     |    30          |    24.43     |    81.27               |
+|    Targovishte Bottling Company Ltd.    |    1155.90    |    200         |    288.98    |    666.92              |
+|    Zagorka Corp.                        |    872.19     |    120         |    174.44    |    577.75              |
+
+* You are **not** allowed to connect to the SQL Server or MongoDB databases to read information.
+* **Input**:
+  * SQLite database
+  * MySQL database
+* **Output**:
+  * Excel file (.xlsx)
+
+## Additional Requirements
+*	Your main program logic should be a C# application (a set of modules, executed sequentially one after another).
+*	Use non-commercial library to read the ZIP file.
+*	For reading the Excel 2003 files (.xls) use ADO.NET (without ORM or third-party libraries).
+*	MySQL should be accessed through Telerik® Data Access ORM (research it).
+*	SQL Server should be accessed through Entity Framework.
+*	You are free to use "code first" or "database first" approach or both for the ORM frameworks.
+*	For the PDF export use a non-commercial third party framework.
+*	The XML files should be read / written through the standard .NET parsers (by your choice).
+*	For JSON serializations use a non-commercial library / framework of your choice.
+*	MongoDB should be accessed through the Official MongoDB C# Driver.
+*	The SQLite embedded database should be accesses though its Entity Framework provider.
+*	For creating the Excel 2007 files (.xlsx) use a third-party non-commercial library.
