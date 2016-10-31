@@ -22,8 +22,10 @@ namespace CarsFactory.SQLDataPopulator
         {
             if (IsDBPopulated() == false)
             {
+                Console.WriteLine("Seeding of Shops entries into Sql Db initialized.");
                 CreateShop(context);
                 context.SaveChanges();
+                Console.WriteLine("Seeding of Shops entries into Sql Db Completed.");
             }
         }
 
@@ -34,7 +36,7 @@ namespace CarsFactory.SQLDataPopulator
 
         private void CreateShop(ICarsFactoryDbContext context)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 8; i++)
             {
                 var shop = new Shop()
                 {
@@ -62,7 +64,7 @@ namespace CarsFactory.SQLDataPopulator
 
         private void CreateCars(ICarsFactoryDbContext context, Shop shop)
         {
-            for (int i = 0; i < 13; i++)
+            for (int i = 0; i < 5; i++)
             {
                 var car = new Car()
                 {
@@ -83,7 +85,7 @@ namespace CarsFactory.SQLDataPopulator
 
         private void CreateSales(ICarsFactoryDbContext context, SaleReport saleReport)
         {
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 4; i++)
             {
                 var sale = new Sale()
                 {
@@ -114,7 +116,7 @@ namespace CarsFactory.SQLDataPopulator
 
         private void AddPartsToCar(ICarsFactoryDbContext context, Car car)
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
                 var part = new Part()
                 {
