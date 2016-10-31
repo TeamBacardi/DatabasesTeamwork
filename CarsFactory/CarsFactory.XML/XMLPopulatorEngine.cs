@@ -21,7 +21,9 @@ namespace CarsFactory.XML
 
         public void Start()
         {
+            Console.WriteLine("Writting to From SQL To XML");
             PopulateXmlWithDb();
+            Console.WriteLine("Writting to XML Completed");
         }
 
         private void PopulateXmlWithDb()

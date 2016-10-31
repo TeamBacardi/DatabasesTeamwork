@@ -7,6 +7,7 @@ using CarsFactory.Sqlite;
 using CarsFactory.Models;
 using CarsFactory.XML;
 using CarsFactory.SQLDataPopulator;
+using CarsFactory.PDF;
 
 namespace CarsFactory.ConsoleClient
 {
@@ -46,6 +47,9 @@ namespace CarsFactory.ConsoleClient
 
             XMLPopulatorEngine xmlPopulator = new XMLPopulatorEngine(db);
             xmlPopulator.Start();
+
+            PDFPopulatorEngine pdfPopulator = new PDFPopulatorEngine(db);
+            pdfPopulator.Start();
         }
     }
 }
