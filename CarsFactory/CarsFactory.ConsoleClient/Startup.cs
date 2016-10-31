@@ -16,12 +16,13 @@ namespace CarsFactory.ConsoleClient
         {
             var db = new CarsFactoryDbContext();
 
-            db.Database.CreateIfNotExists();
-
-            SQLPopulatorEngine populator = new SQLPopulatorEngine(db);
-
-            if (populator.IsDBPopulated() == false)
+            if (db.Database.Exists() == false)
             {
+                Console.WriteLine("Creating SQL Database");
+                db.Database.CreateIfNotExists();
+
+                SQLPopulatorEngine populator = new SQLPopulatorEngine(db);
+
                 populator.Start();
                 Main();
                 return;

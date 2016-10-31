@@ -31,12 +31,12 @@ namespace CarsFactory.SQLDataPopulator
 
         public bool IsDBPopulated()
         {
-            return context.Cars.FirstOrDefault() != null;
+            return context.Cars.Select(c => c.Model).FirstOrDefault() != null;
         }
 
         private void CreateShop(ICarsFactoryDbContext context)
         {
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 5; i++)
             {
                 var shop = new Shop()
                 {
@@ -64,7 +64,7 @@ namespace CarsFactory.SQLDataPopulator
 
         private void CreateCars(ICarsFactoryDbContext context, Shop shop)
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 4; i++)
             {
                 var car = new Car()
                 {
