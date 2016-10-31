@@ -10,5 +10,7 @@ namespace CarsFactory.Data.Contracts
         IDbSet<SaleReport> SaleReports { get; set; }
         IDbSet<Sale> Sales { get; set; }
         IDbSet<Shop> Shops { get; set; }
+
+        int SaveChanges();
     }
 }

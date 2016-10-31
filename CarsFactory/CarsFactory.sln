@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsFactory.Sqlite", "CarsF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{FC50E6ED-F237-4B97-9428-C44A68A5858F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsFactory.SQLDataPopulator", "CarsFactory.SQLDataPopulator\CarsFactory.SQLDataPopulator.csproj", "{0A975BAE-30C6-4833-B71A-137EE931CD03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{FC50E6ED-F237-4B97-9428-C44A68A5858F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC50E6ED-F237-4B97-9428-C44A68A5858F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC50E6ED-F237-4B97-9428-C44A68A5858F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A975BAE-30C6-4833-B71A-137EE931CD03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A975BAE-30C6-4833-B71A-137EE931CD03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A975BAE-30C6-4833-B71A-137EE931CD03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A975BAE-30C6-4833-B71A-137EE931CD03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

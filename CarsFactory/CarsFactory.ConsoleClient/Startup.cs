@@ -6,6 +6,7 @@ using CarsFactory.MySql;
 using CarsFactory.Sqlite;
 using CarsFactory.Models;
 using CarsFactory.XML;
+using CarsFactory.SQLDataPopulator;
 
 namespace CarsFactory.ConsoleClient
 {
@@ -17,9 +18,19 @@ namespace CarsFactory.ConsoleClient
 
             db.Database.CreateIfNotExists();
 
+            SQLPopulatorEngine populator = new SQLPopulatorEngine(db);
+
+            if (populator.IsDBPopulated() == false)
+            {
+                populator.Start();
+                Main();
+                return;
+            }
+
             string filename = "../../20-Aug-2015.zip";
 
             ExcelImproter.ImportToMssql(filename, db);
+            
             //MongoDbSeeder.ConnectAndSeed();
 
             var partsReporter = new MySqlData();

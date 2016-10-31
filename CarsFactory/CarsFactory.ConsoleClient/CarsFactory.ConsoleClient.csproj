@@ -124,6 +124,10 @@
       <Project>{259f79a7-ab89-415e-b148-4187e067cb0e}</Project>
       <Name>CarsFactory.MySql</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CarsFactory.SQLDataPopulator\CarsFactory.SQLDataPopulator.csproj">
+      <Project>{0a975bae-30c6-4833-b71a-137ee931cd03}</Project>
+      <Name>CarsFactory.SQLDataPopulator</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CarsFactory.Sqlite\CarsFactory.Sqlite.csproj">
       <Project>{EDDB28C0-1648-45C7-A901-4D9D5FB302D2}</Project>
       <Name>CarsFactory.Sqlite</Name>
