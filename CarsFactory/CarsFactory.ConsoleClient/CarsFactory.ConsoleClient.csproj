@@ -140,6 +140,10 @@
       <Project>{2abf0500-f2b4-4406-93dc-1578e6560f20}</Project>
       <Name>CarsFactory.XML</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{fc50e6ed-f237-4b97-9428-c44a68a5858f}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

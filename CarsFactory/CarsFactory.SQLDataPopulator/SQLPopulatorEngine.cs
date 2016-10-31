@@ -6,26 +6,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utils;
 
 namespace CarsFactory.SQLDataPopulator
 {
     public class SQLPopulatorEngine
     {
         private ICarsFactoryDbContext context;
+        private IWritter writter;
 
-        public SQLPopulatorEngine(ICarsFactoryDbContext dbContext)
+        public SQLPopulatorEngine(ICarsFactoryDbContext dbContext, IWritter writter)
         {
             this.context = dbContext;
+            this.writter = writter;
         }
 
         public void Start()
         {
             if (IsDBPopulated() == false)
             {
-                Console.WriteLine("Seeding of Shops entries into Sql Db initialized.");
+                this.writter.WriteLine("Seeding of Shops entries into Sql Db initialized.");
                 CreateShop(context);
                 context.SaveChanges();
-                Console.WriteLine("Seeding of Shops entries into Sql Db Completed.");
+                this.writter.WriteLine("Seeding of Shops entries into Sql Db Completed.");
             }
         }
 

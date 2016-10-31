@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleWritter.cs" />
+    <Compile Include="IWritter.cs" />
     <Compile Include="IRandomProvider.cs" />
     <Compile Include="RandomProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

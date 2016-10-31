@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
+using Utils;
 
 namespace CarsFactory.PDF
 {
@@ -14,15 +15,17 @@ namespace CarsFactory.PDF
     {
         private const string url = "../../../Cars-Factory.pdf";
         private ICarsFactoryDbContext context;
+        private IWritter writter;
 
-        public PDFPopulatorEngine(ICarsFactoryDbContext context)
+        public PDFPopulatorEngine(ICarsFactoryDbContext context, IWritter writter)
         {
             this.context = context;
+            this.writter = writter;
         }
 
         public void Start()
         {
-            Console.WriteLine("Writting From SQL DB To PDF");
+            writter.WriteLine("Writting From SQL DB To PDF");
 
             Document doc = new Document(PageSize.LETTER, 10, 10, 42, 35);
             var fileStream = new FileStream(url, FileMode.Create);
@@ -54,7 +57,7 @@ namespace CarsFactory.PDF
 
             doc.Close();
 
-            Console.WriteLine("Writing to PDF Completed");
+            writter.WriteLine("Writing to PDF Completed");
         }
 
         private void WriteCarParts(Document doc)

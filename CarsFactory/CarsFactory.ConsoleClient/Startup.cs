@@ -8,6 +8,7 @@ using CarsFactory.Models;
 using CarsFactory.XML;
 using CarsFactory.SQLDataPopulator;
 using CarsFactory.PDF;
+using Utils;
 
 namespace CarsFactory.ConsoleClient
 {
@@ -15,14 +16,16 @@ namespace CarsFactory.ConsoleClient
     {
         public static void Main()
         {
+            IWritter writter = new ConsoleWritter();
+
             var db = new CarsFactoryDbContext();
 
             if (db.Database.Exists() == false)
             {
-                Console.WriteLine("Creating SQL Database");
+                writter.WriteLine("Creating SQL Database");
                 db.Database.CreateIfNotExists();
 
-                SQLPopulatorEngine populator = new SQLPopulatorEngine(db);
+                SQLPopulatorEngine populator = new SQLPopulatorEngine(db, writter);
 
                 populator.Start();
                 Main();
@@ -45,10 +48,10 @@ namespace CarsFactory.ConsoleClient
             var mysqlContex = new MySqlContext("server = localhost; database = carsfactory; uid = root; pwd =123456; ");
             ExcelExporter.Generate(sqlite, mysqlContex);
 
-            XMLPopulatorEngine xmlPopulator = new XMLPopulatorEngine(db);
+            XMLPopulatorEngine xmlPopulator = new XMLPopulatorEngine(db, writter);
             xmlPopulator.Start();
 
-            PDFPopulatorEngine pdfPopulator = new PDFPopulatorEngine(db);
+            PDFPopulatorEngine pdfPopulator = new PDFPopulatorEngine(db, writter);
             pdfPopulator.Start();
         }
     }

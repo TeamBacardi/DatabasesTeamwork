@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using Utils;
 
 namespace CarsFactory.XML
 {
@@ -13,17 +14,19 @@ namespace CarsFactory.XML
     {
         private const string XmlLocation = "../../../CarsFactoryXML.xml";
         private ICarsFactoryDbContext dbContext;
+        private IWritter writter;
 
-        public XMLPopulatorEngine(ICarsFactoryDbContext dbContext)
+        public XMLPopulatorEngine(ICarsFactoryDbContext dbContext, IWritter writter)
         {
             this.dbContext = dbContext;
+            this.writter = writter;
         }
 
         public void Start()
         {
-            Console.WriteLine("Writting to From SQL To XML");
+            this.writter.WriteLine("Writting to From SQL To XML");
             PopulateXmlWithDb();
-            Console.WriteLine("Writting to XML Completed");
+            this.writter.WriteLine("Writting to XML Completed");
         }
 
         private void PopulateXmlWithDb()
