@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CarsList>
+   <Car>
+      <Model>test model 1</Model>
+      <YearOfManufacture>1990</YearOfManufacture>
+	  <Details>test details 1</Details>
+	  <Price>120000</Price>
+	  <ShopId>1</ShopId>
+   </Car>
+   <Car>
+      <Model>test model 2</Model>
+      <YearOfManufacture>2000</YearOfManufacture>
+	  <Details>test details 2</Details>
+	  <Price>200000</Price>
+	  <ShopId>2</ShopId>
+   </Car>
+</CarsList>

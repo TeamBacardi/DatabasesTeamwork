@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CarsFactory.Data;
 using CarsFactory.MongoDB;
 using CarsFactory.Excel;
@@ -32,6 +33,11 @@ namespace CarsFactory.ConsoleClient
                 return;
             }
 
+            /* Read from XML and import in db */
+            var xmlReader = new XMLDataReader(db);           
+            var carsList = xmlReader.DeserializeXmlFileToObjects("../../cars.xml");
+            xmlReader.SaveXmlToDb(carsList);
+
             string filename = "../../20-Aug-2015.zip";
 
             ExcelImproter.ImportToMssql(filename, db);
@@ -41,7 +47,6 @@ namespace CarsFactory.ConsoleClient
             var partsReporter = new MySqlData();
 
             MySqlSeed.Seed(partsReporter);
-
             var sqlite = new ExpensesEntities();
 
             // change the password
