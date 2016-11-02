@@ -4,19 +4,22 @@ using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 using CarsFactory.Models.Contracts;
 
-namespace CarsFactory.Models
+namespace CarsFactory.Models.XmlModels
 {
     [XmlRoot("CarsList")]
-    public class Car : ICar
+    [Serializable, XmlType("Car")]
+    public class CarXmlModel : ICar
     {
+        [XmlIgnore]
         private ICollection<Part> parts;
 
-        public Car()
+        public CarXmlModel()
         {
             this.parts = new HashSet<Part>();
         }
 
         [Key]
+        [XmlIgnore]
         public int Id { get; set; }
 
         [Required]
@@ -28,12 +31,16 @@ namespace CarsFactory.Models
 
         public decimal? Price { get; set; }
 
+
+        [XmlIgnore]
         public virtual Sale Sale { get; set; }
 
         public int ShopId { get; set; }
 
+        [XmlIgnore]
         public virtual Shop Shop { get; set; }
 
+        [XmlIgnore]
         public virtual ICollection<Part> Parts
         {
             get { return this.parts; }

@@ -3,34 +3,47 @@ using System.IO;
 using System.Xml.Serialization;
 using CarsFactory.Data.Contracts;
 using CarsFactory.Models;
+using CarsFactory.Models.Contracts;
+using CarsFactory.Models.XmlModels;
 
 namespace CarsFactory.XML
 {
-    public class XMLDataReader
+    public class XmlDataReader
     {
         private ICarsFactoryDbContext dbContext;
 
-        public XMLDataReader(ICarsFactoryDbContext context)
+        public XmlDataReader(ICarsFactoryDbContext context)
         {
             this.dbContext = context;
         }
 
-        public void SaveXmlToDb(IEnumerable<Car> cars)
+        public void SaveXmlToDb(IEnumerable<ICar> cars)
         {
+            
+
             foreach (var car in cars)
             {
-                this.dbContext.Cars.Add(car);
+                Car carToAdd = new Car
+                {
+                    Details = car.Details,
+                    Id = car.Id,
+                    Model = car.Model,
+                    ShopId = car.ShopId,
+                    YearOfManufacture = car.YearOfManufacture
+                };
+                this.dbContext.Cars.Add(carToAdd);
                 this.dbContext.SaveChanges();
             }
         }
 
-        public IEnumerable<Car> DeserializeXmlFileToObjects(string xmlFilename)
+        public IEnumerable<CarXmlModel> DeserializeXmlFileToObjects(string xmlFilename)
         {                                
-            IEnumerable<Car> carsList;
+            IEnumerable<CarXmlModel> carsList;
             using (var reader = new StreamReader(xmlFilename))
             {
-                var deserializer = new XmlSerializer(typeof(List<Car>), new XmlRootAttribute("CarsList"));
-                carsList = (IEnumerable<Car>)deserializer.Deserialize(reader);
+                var deserializer = new XmlSerializer(typeof(List<CarXmlModel>), new XmlRootAttribute("CarsList"));
+                carsList = (IEnumerable<CarXmlModel>)deserializer.Deserialize(reader);
+
             }
 
             return carsList;

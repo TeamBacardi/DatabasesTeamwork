@@ -4,11 +4,8 @@ using CarsFactory.MySql;
 using CarsFactory.MySql.Models;
 using CarsFactory.Sqlite;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarsFactory.Excel
 {

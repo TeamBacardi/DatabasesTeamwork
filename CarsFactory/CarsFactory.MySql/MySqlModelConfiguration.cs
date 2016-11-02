@@ -1,9 +1,5 @@
 ﻿using CarsFactory.MySql.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Telerik.OpenAccess.Metadata;
 using Telerik.OpenAccess.Metadata.Fluent;
 

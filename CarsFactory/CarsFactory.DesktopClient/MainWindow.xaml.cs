@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using CarsFactory.Data;
 using CarsFactory.Excel;
+using CarsFactory.Models.Contracts;
+using CarsFactory.Models.XmlModels;
 using CarsFactory.MongoDB;
-using CarsFactory.MySql;
-using CarsFactory.Sqlite;
 using CarsFactory.SQLDataPopulator;
 using CarsFactory.XML;
 using Microsoft.Win32;
@@ -97,7 +98,7 @@ namespace CarsFactory.DesktopClient
 
         private void ImportFromXmlToDb_Click(object sender, RoutedEventArgs e)
         {
-            var xmlReader = new XMLDataReader(db);
+            var xmlReader = new XmlDataReader(db);
 
             OpenFileDialog fileDialog = new OpenFileDialog
             {
@@ -112,7 +113,7 @@ namespace CarsFactory.DesktopClient
             {
                 string filename = fileDialog.FileName;
                 
-                var carsList = xmlReader.DeserializeXmlFileToObjects(filename);
+                IEnumerable<CarXmlModel> carsList = xmlReader.DeserializeXmlFileToObjects(filename);
                 xmlReader.SaveXmlToDb(carsList);
                 
                 MessageBox.Show("magic has happened");

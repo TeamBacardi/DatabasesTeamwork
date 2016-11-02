@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using CarsFactory.Data;
-using CarsFactory.MongoDB;
+﻿using CarsFactory.Data;
 using CarsFactory.Excel;
 using CarsFactory.MySql;
 using CarsFactory.Sqlite;
-using CarsFactory.Models;
 using CarsFactory.XML;
 using CarsFactory.SQLDataPopulator;
 using CarsFactory.PDF;
@@ -34,9 +30,9 @@ namespace CarsFactory.ConsoleClient
             }
 
             /* Read from XML and import in db */
-            var xmlReader = new XMLDataReader(db);           
+            var xmlReader = new XmlDataReader(db);           
             var carsList = xmlReader.DeserializeXmlFileToObjects("../../cars.xml");
-            xmlReader.SaveXmlToDb(carsList);
+            //xmlReader.SaveXmlToDb(carsList);
 
             string filename = "../../20-Aug-2015.zip";
 

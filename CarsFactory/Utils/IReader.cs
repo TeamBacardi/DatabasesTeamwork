@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace Utils
+﻿namespace Utils
 {
     public interface IReader
     {

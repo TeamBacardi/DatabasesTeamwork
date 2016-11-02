@@ -1,5 +1,4 @@
 ﻿using CarsFactory.MySql.Repositories;
-using System;
 using Telerik.OpenAccess;
 using Utils;
 

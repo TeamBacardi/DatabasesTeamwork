@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Serialization;
 using CarsFactory.Models.Contracts;
 
-namespace CarsFactory.Models
+namespace CarsFactory.Models.XmlModels
 {
-    public class SaleReport : ISaleReport
+
+    [Serializable, XmlType("SaleReport")]
+    public class SaleReportXmlModel : ISaleReport
     {
         private ICollection<Sale> sales;
 
-        public SaleReport()
+        public SaleReportXmlModel()
         {
             this.sales = new HashSet<Sale>();
         }
-        
+
         [Key]
         public int Id { get; set; }
 

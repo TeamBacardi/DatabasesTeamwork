@@ -1,9 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Serialization;
 using CarsFactory.Models.Contracts;
 
-namespace CarsFactory.Models
+namespace CarsFactory.Models.XmlModels
 {
-    public class Sale : ISale
+
+    [Serializable, XmlType("Sale")]
+    public class SaleXmlModel : ISale
     {
         [Key]
         public int Id { get; set; }
