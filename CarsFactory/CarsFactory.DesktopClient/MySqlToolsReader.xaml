@@ -1,0 +1,17 @@
+﻿<Window x:Class="CarsFactory.DesktopClient.MySqlToolsReader"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarsFactory.DesktopClient"
+        mc:Ignorable="d"
+        Title="MySqlToolsReader" Height="300" Width="300">
+    <Grid>
+        <Label x:Name="PasswordLabel" Content="Enter Password for root user on MySQL server" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,56,0,0" Width="272"/>
+        <Button x:Name="SeedMySql" Content="SeedMySql" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="52,145,0,0" Click="SeedMySql_Click"/>
+        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="109,184,0,0" Click="Cancel_Click"/>
+        <PasswordBox x:Name="PasswordTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="52,96,0,0" Width="182"/>
+        <Button x:Name="GenerateExelReport" Content="GenerateExelReport" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="159,145,0,0" Click="GenerateExelReport_Click"/>
+
+    </Grid>
+</Window>

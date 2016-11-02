@@ -5,9 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarsFactory.DesktopClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="587" Width="948">
     <Grid>
-        <Button x:Name="ExcelImportButton" Content="Import Excel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="188,146,0,0" Click="ExcelImportButton_Click"/>
-
+        <Button x:Name="ExcelImportButton" Content="Import Excel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,10,0,0" Click="ExcelImportButton_Click"/>
+        <Button x:Name="MongoDbSeed" Content="Seed Mongo Db" HorizontalAlignment="Left" VerticalAlignment="Top" Width="113" Margin="94,10,0,0" Click="MongoDbSeed_Click"/>
+        <Button x:Name="MongoDbImport" Content="Import from Mongo Db" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="244,10,0,0" Click="MongoDbImport_Click"/>
+        <TextBox x:Name="TestBox" Margin="10,116,10,48"/>
+        <Button x:Name="ImportFromXmlToDb" Content="Import XML To Db" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,35,0,0" Click="ImportFromXmlToDb_Click"/>
+        <Button x:Name="MySqlTools" Content="MySQL Tools" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="94,35,0,0" Click="MySQLTools_Click"/>
     </Grid>
 </Window>

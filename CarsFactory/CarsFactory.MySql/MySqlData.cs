@@ -1,6 +1,7 @@
 ﻿using CarsFactory.MySql.Repositories;
 using System;
 using Telerik.OpenAccess;
+using Utils;
 
 namespace CarsFactory.MySql
 {
@@ -10,8 +11,24 @@ namespace CarsFactory.MySql
 
         private readonly MySqlContext context;
 
-        public MySqlData()
+        private IWritter writter;
+        private IReader reader;
+
+        public MySqlData(IReader reader)
         {
+            this.reader = reader;
+            var password = this.MySqlPasswordPrompt();
+
+            this.context = new MySqlContext(string.Format(ConnectionString, password));
+
+            this.ShopReports = new MySqlShopRepository(this.context);
+
+            this.VerifyDatabase();
+        }
+        public MySqlData(IReader reader, IWritter writter)
+        {
+            this.reader = reader;
+            this.writter = writter;
             var password = this.MySqlPasswordPrompt();
 
             this.context = new MySqlContext(string.Format(ConnectionString, password));
@@ -51,10 +68,10 @@ namespace CarsFactory.MySql
 
         private string MySqlPasswordPrompt()
         {
-            Console.Write("Please enter your password for 'root' account: ");
-            Console.ForegroundColor = Console.BackgroundColor;
-            var password = Console.ReadLine().Trim();
-            Console.ResetColor();
+            writter?.Write("Please enter your password for 'root' account: ");
+            //Console.ForegroundColor = Console.BackgroundColor;
+            var password = reader.ReadLine().Trim();
+            //Console.ResetColor();
 
             return password;
         }

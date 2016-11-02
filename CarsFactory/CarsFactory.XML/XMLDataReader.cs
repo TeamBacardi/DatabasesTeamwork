@@ -20,6 +20,7 @@ namespace CarsFactory.XML
             foreach (var car in cars)
             {
                 this.dbContext.Cars.Add(car);
+                this.dbContext.SaveChanges();
             }
         }
 

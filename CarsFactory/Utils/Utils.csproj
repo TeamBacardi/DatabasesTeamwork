@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleReader.cs" />
     <Compile Include="ConsoleWritter.cs" />
+    <Compile Include="IReader.cs" />
     <Compile Include="IWritter.cs" />
     <Compile Include="IRandomProvider.cs" />
     <Compile Include="RandomProvider.cs" />

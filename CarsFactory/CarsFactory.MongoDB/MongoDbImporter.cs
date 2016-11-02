@@ -36,9 +36,10 @@ namespace CarsFactory.MongoDB
             var shops = database.GetCollection<Shop>("shops");
             var parts = database.GetCollection<Part>("parts");
 
+            TransferCarShops(shops, dbContext);
             TransferCars(cars, dbContext);
             TransferParts(parts, dbContext);
-            TransferCarShops(shops, dbContext);
+
 
         }
 

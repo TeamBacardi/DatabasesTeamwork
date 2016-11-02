@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace CarsFactory.MongoDB
 {
-    public class MongoDbSeeder
+    public static class MongoDbSeeder
     {
         private static IMongoClient client;
         private static IMongoDatabase database;
@@ -25,7 +25,7 @@ namespace CarsFactory.MongoDB
             client = new MongoClient();
 
             database = client.GetDatabase("carShops");
-            
+
             database.CreateCollection("cars");
             database.CreateCollection("shops");
             database.CreateCollection("parts");
@@ -47,7 +47,8 @@ namespace CarsFactory.MongoDB
                 Id = 1,
                 Price = 50000,
                 Details = "A ver good car.",
-                YearOfManufacture = "2016"
+                YearOfManufacture = "2016",
+                ShopId = 1
             };
 
             var carBmw = new Car
@@ -56,7 +57,8 @@ namespace CarsFactory.MongoDB
                 Id = 2,
                 Price = 70000,
                 Details = "Does not have indicators.",
-                YearOfManufacture = "2015"
+                YearOfManufacture = "2015",
+                ShopId = 1
             };
 
             ICollection<Car> collectionOfCars = new List<Car>

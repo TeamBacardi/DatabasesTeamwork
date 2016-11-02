@@ -18,7 +18,7 @@ namespace CarsFactory.ConsoleClient
         public static void Main()
         {
             IWritter writter = new ConsoleWritter();
-
+            IReader reader = new ConsoleReader();
             var db = new CarsFactoryDbContext();
 
             if (db.Database.Exists() == false)
@@ -44,13 +44,13 @@ namespace CarsFactory.ConsoleClient
             
             //MongoDbSeeder.ConnectAndSeed();
 
-            var partsReporter = new MySqlData();
+            //var partsReporter = new MySqlData();
 
-            MySqlSeed.Seed(partsReporter);
+            //MySqlSeed.Seed(partsReporter);
             var sqlite = new ExpensesEntities();
 
             // change the password
-            var mysqlContex = new MySqlContext("server = localhost; database = carsfactory; uid = root; pwd =123456; ");
+            var mysqlContex = new MySqlContext("server = localhost; database = carsfactory; uid = root; pwd =9208266264; ");
             ExcelExporter.Generate(sqlite, mysqlContex);
 
             XMLPopulatorEngine xmlPopulator = new XMLPopulatorEngine(db, writter);
