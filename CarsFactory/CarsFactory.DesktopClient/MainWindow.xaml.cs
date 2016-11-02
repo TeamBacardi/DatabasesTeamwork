@@ -7,6 +7,7 @@ using CarsFactory.Excel;
 using CarsFactory.Models.Contracts;
 using CarsFactory.Models.XmlModels;
 using CarsFactory.MongoDB;
+using CarsFactory.PDF;
 using CarsFactory.SQLDataPopulator;
 using CarsFactory.XML;
 using Microsoft.Win32;
@@ -111,12 +112,19 @@ namespace CarsFactory.DesktopClient
 
             if (result == true)
             {
-                string filename = fileDialog.FileName;
-                
-                IEnumerable<CarXmlModel> carsList = xmlReader.DeserializeXmlFileToObjects(filename);
-                xmlReader.SaveXmlToDb(carsList);
-                
-                MessageBox.Show("magic has happened");
+                try
+                {
+                    string filename = fileDialog.FileName;
+
+                    IEnumerable<CarXmlModel> carsList = xmlReader.DeserializeXmlFileToObjects(filename);
+                    xmlReader.SaveXmlToDb(carsList);
+
+                    MessageBox.Show("Conversion Complete, and pushed to database.");
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
             }
         }
 
@@ -125,7 +133,19 @@ namespace CarsFactory.DesktopClient
             var mySqlToolsReader = new MySqlToolsReader();
             mySqlToolsReader.Show();
 
-            
+
+        }
+
+        private void GeneratePdf_Click(object sender, RoutedEventArgs e)
+        {
+            PDFPopulatorEngine pdfPopulator = new PDFPopulatorEngine(db, writter);
+            pdfPopulator.Start();
+        }
+
+        private void GenerateXml_Click(object sender, RoutedEventArgs e)
+        {
+            XMLPopulatorEngine xmlPopulator = new XMLPopulatorEngine(db, writter);
+            xmlPopulator.Start();
         }
     }
 }

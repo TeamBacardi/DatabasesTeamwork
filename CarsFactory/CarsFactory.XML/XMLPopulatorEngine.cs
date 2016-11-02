@@ -1,4 +1,5 @@
-﻿using CarsFactory.Data.Contracts;
+﻿using System;
+using CarsFactory.Data.Contracts;
 using CarsFactory.Models;
 using System.Collections.Generic;
 using System.Xml;
@@ -24,10 +25,18 @@ namespace CarsFactory.XML
             PopulateXmlWithDb();
             this.writter.WriteLine("Writting to XML Completed");
         }
-
+        
         private void PopulateXmlWithDb()
         {
-            using (XmlWriter writer = XmlWriter.Create(XmlLocation))
+            XmlWriterSettings settings = new XmlWriterSettings
+            {
+                Indent = true,
+                IndentChars = "  ",
+                NewLineChars = Environment.NewLine,
+                NewLineHandling = NewLineHandling.Replace
+            };
+
+            using (XmlWriter writer = XmlWriter.Create(XmlLocation, settings))
             {
                 writer.WriteStartDocument();
 
