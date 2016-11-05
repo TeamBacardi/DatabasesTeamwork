@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace CarsFactory.MySql.Repositories
 {
-    public class MySqlShopRepository : IMySqlShopRepository
+    public class MySqlShopReportRepository : IMySqlShopReportRepository
     {
         private readonly MySqlContext context;
 
-        public MySqlShopRepository(MySqlContext context)
+        public MySqlShopReportRepository(MySqlContext context)
         {
             this.context = context;
         }

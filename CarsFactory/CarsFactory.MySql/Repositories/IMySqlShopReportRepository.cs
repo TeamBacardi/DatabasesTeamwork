@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace CarsFactory.MySql.Repositories
 {
-    public interface IMySqlShopRepository
+    public interface IMySqlShopReportRepository
     {
         void Add(ShopReport entity);
 

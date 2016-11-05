@@ -74,8 +74,8 @@
     <Compile Include="MySqlModelConfiguration.cs" />
     <Compile Include="MySqlSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\IMySqlShopRepository.cs" />
-    <Compile Include="Repositories\MySqlShopRepository.cs" />
+    <Compile Include="Repositories\IMySqlShopReportRepository.cs" />
+    <Compile Include="Repositories\MySqlShopReportRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

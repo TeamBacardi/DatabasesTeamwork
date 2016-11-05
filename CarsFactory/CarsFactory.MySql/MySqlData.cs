@@ -20,7 +20,7 @@ namespace CarsFactory.MySql
 
             this.context = new MySqlContext(string.Format(ConnectionString, password));
 
-            this.ShopReports = new MySqlShopRepository(this.context);
+            this.ShopReports = new MySqlShopReportRepository(this.context);
 
             this.VerifyDatabase();
         }
@@ -32,12 +32,12 @@ namespace CarsFactory.MySql
 
             this.context = new MySqlContext(string.Format(ConnectionString, password));
 
-            this.ShopReports = new MySqlShopRepository(this.context);
+            this.ShopReports = new MySqlShopReportRepository(this.context);
 
             this.VerifyDatabase();
         }
 
-        public IMySqlShopRepository ShopReports { get; private set; }
+        public IMySqlShopReportRepository ShopReports { get; private set; }
 
         private void VerifyDatabase()
         {
