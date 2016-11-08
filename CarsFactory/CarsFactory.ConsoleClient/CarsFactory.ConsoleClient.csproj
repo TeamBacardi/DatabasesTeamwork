@@ -112,6 +112,10 @@
       <Project>{DCF8030C-9591-4945-97AB-0E0C4EAD2A30}</Project>
       <Name>CarsFactory.Excel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CarsFactory.JSON\CarsFactory.JSON.csproj">
+      <Project>{4ec368d4-4452-42e3-80a1-5d701a0b44f9}</Project>
+      <Name>CarsFactory.JSON</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CarsFactory.Models\CarsFactory.Models.csproj">
       <Project>{9a50e84c-0ea5-49e2-a435-d8eb5c3e5ea5}</Project>
       <Name>CarsFactory.Models</Name>

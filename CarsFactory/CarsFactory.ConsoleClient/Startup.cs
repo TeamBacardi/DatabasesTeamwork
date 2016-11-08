@@ -6,6 +6,7 @@ using CarsFactory.XML;
 using CarsFactory.SQLDataPopulator;
 using CarsFactory.PDF;
 using Utils;
+using CarsFactory.JSON;
 
 namespace CarsFactory.ConsoleClient
 {
@@ -30,30 +31,34 @@ namespace CarsFactory.ConsoleClient
             }
 
             /* Read from XML and import in db */
-            var xmlReader = new XmlDataReader(db);           
-            var carsList = xmlReader.DeserializeXmlFileToObjects("../../cars.xml");
+            //var xmlReader = new XmlDataReader(db);           
+           // var carsList = xmlReader.DeserializeXmlFileToObjects("../../cars.xml");
             //xmlReader.SaveXmlToDb(carsList);
 
             string filename = "../../20-Aug-2015.zip";
 
-            ExcelImproter.ImportToMssql(filename, db);
+            //ExcelImproter.ImportToMssql(filename, db);
             
             //MongoDbSeeder.ConnectAndSeed();
 
             //var partsReporter = new MySqlData();
 
             //MySqlSeed.Seed(partsReporter);
-            var sqlite = new ExpensesEntities();
+            //var sqlite = new ExpensesEntities();
 
             // change the password
-            var mysqlContex = new MySqlContext("server = localhost; database = carsfactory; uid = root; pwd =9208266264; ");
-            ExcelExporter.Generate(sqlite, mysqlContex);
+            //var mysqlContex = new MySqlContext("server = localhost; database = carsfactory; uid = root; pwd =9409; ");
 
-            XMLPopulatorEngine xmlPopulator = new XMLPopulatorEngine(db, writter);
-            xmlPopulator.Start();
+            //ExcelExporter.Generate(sqlite, mysqlContex);
 
-            PDFPopulatorEngine pdfPopulator = new PDFPopulatorEngine(db, writter);
-            pdfPopulator.Start();
+            //XMLPopulatorEngine xmlPopulator = new XMLPopulatorEngine(db, writter);
+            //xmlPopulator.Start();
+
+            //PDFPopulatorEngine pdfPopulator = new PDFPopulatorEngine(db, writter);
+            //pdfPopulator.Start();
+
+            JSONPopulationEngine jsonPopulator = new JSONPopulationEngine(db, writter);
+            jsonPopulator.Start();
         }
     }
 }
