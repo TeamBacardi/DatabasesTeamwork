@@ -22,27 +22,27 @@ namespace CarsFactory.JSON
 
         public void Start()
         {
-            foreach (var sale in contex.Sales)
+
+            var saleReports = contex.SaleReports;
+
+            var jsonSettings = new JsonSerializerSettings
             {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            };
 
+            foreach (var saleReport in saleReports)
+            {
+                var serializedObject = JsonConvert.SerializeObject(saleReports, Formatting.Indented, jsonSettings);
+                this.writter.WriteLine($"Creating sale report {saleReport.Id}");
 
-                var currentSale = new
+                var filepath = $"../../../JsonReports/Report-{saleReport.Id}.json";
+
+                using (var file = File.CreateText(filepath))
                 {
-                    SaleId = sale.Id,
-                    CarId = sale.Car,
-                    Quantity = sale.Quantity,
-                    TotalIncomes = sale.Sum
-                };
-                
-
-                var serializedObject = JsonConvert.SerializeObject(currentSale, Formatting.Indented);
-
-                using (var writer = new StreamWriter(string.Format(url, currentSale.SaleId)))
-                {
-                    writer.WriteLine(serializedObject);
+                    file.Write(serializedObject);
                 }
             }
+            this.writter.WriteLine($"Finished");
         }
-
     }
 }

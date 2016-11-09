@@ -4,6 +4,7 @@ using System.IO;
 using System.Windows;
 using CarsFactory.Data;
 using CarsFactory.Excel;
+using CarsFactory.JSON;
 using CarsFactory.Models.Contracts;
 using CarsFactory.Models.XmlModels;
 using CarsFactory.MongoDB;
@@ -23,7 +24,6 @@ namespace CarsFactory.DesktopClient
         private CarsFactoryDbContext db = new CarsFactoryDbContext();
 
         private IWritter writter;
-        //  private IReader reader;
 
         public MainWindow()
         {
@@ -47,8 +47,6 @@ namespace CarsFactory.DesktopClient
             }
         }
 
-
-
         private void ExcelImportButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog
@@ -62,11 +60,16 @@ namespace CarsFactory.DesktopClient
 
             if (result == true)
             {
-                string filename = fileDialog.FileName;
-
-                ExcelImproter.ImportToMssql(filename, db);
-
-                MessageBox.Show("magic has happened");
+                try
+                {
+                    string filename = fileDialog.FileName;
+                    var excelImproter = new ExcelImproter(writter);
+                    excelImproter.ImportToMssql(filename, db);
+                }
+                catch (Exception exception)
+                {
+                    writter.WriteLine(exception.ToString());
+                }
             }
         }
 
@@ -74,7 +77,8 @@ namespace CarsFactory.DesktopClient
         {
             try
             {
-                MongoDbSeeder.ConnectAndSeed();
+                var mongoSeeder = new MongoDbSeeder(writter);
+                mongoSeeder.ConnectAndSeed();
             }
             catch (Exception exception)
             {
@@ -86,8 +90,7 @@ namespace CarsFactory.DesktopClient
         {
             try
             {
-
-                var importer = new MongoDbImporter(db);
+                var importer = new MongoDbImporter(db, writter);
 
                 importer.Transfer();
             }
@@ -99,7 +102,7 @@ namespace CarsFactory.DesktopClient
 
         private void ImportFromXmlToDb_Click(object sender, RoutedEventArgs e)
         {
-            var xmlReader = new XmlDataReader(db);
+            var xmlReader = new XmlDataReader(db, writter);
 
             OpenFileDialog fileDialog = new OpenFileDialog
             {
@@ -118,8 +121,6 @@ namespace CarsFactory.DesktopClient
 
                     IEnumerable<CarXmlModel> carsList = xmlReader.DeserializeXmlFileToObjects(filename);
                     xmlReader.SaveXmlToDb(carsList);
-
-                    MessageBox.Show("Conversion Complete, and pushed to database.");
                 }
                 catch (Exception exception)
                 {
@@ -132,8 +133,6 @@ namespace CarsFactory.DesktopClient
         {
             var mySqlToolsReader = new MySqlToolsReader();
             mySqlToolsReader.Show();
-
-
         }
 
         private void GeneratePdf_Click(object sender, RoutedEventArgs e)
@@ -144,8 +143,29 @@ namespace CarsFactory.DesktopClient
 
         private void GenerateXml_Click(object sender, RoutedEventArgs e)
         {
-            XMLPopulatorEngine xmlPopulator = new XMLPopulatorEngine(db, writter);
-            xmlPopulator.Start();
+            try
+            {
+                XMLPopulatorEngine xmlPopulator = new XMLPopulatorEngine(db, writter);
+                xmlPopulator.Start();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.ToString());
+            }
+        }
+
+        private void GenerateJson_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                var jsonPopulator = new JSONPopulationEngine(db, writter);
+                jsonPopulator.Start();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.ToString());
+            }
         }
     }
 }

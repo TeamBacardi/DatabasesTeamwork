@@ -1,27 +1,40 @@
 ﻿using System.Collections.Generic;
 using CarsFactory.Models;
 using MongoDB.Driver;
+using Utils;
 
 namespace CarsFactory.MongoDB
 {
-    public static class MongoDbSeeder
+    public class MongoDbSeeder
     {
-        private static IMongoClient client;
-        private static IMongoDatabase database;
+        private IMongoClient client;
+        private IMongoDatabase database;
+        private IWritter writter;
 
+        public MongoDbSeeder(IWritter writter)
+        {
+            this.writter = writter;
+        }
 
         /// <summary>
         /// This method only seeds a clean db, if it's populated it will throw silently
         /// </summary>
-        public static void ConnectAndSeed()
+        public void ConnectAndSeed()
         {
             client = new MongoClient();
 
             database = client.GetDatabase("carShops");
+            this.writter.WriteLine("Creating databse - carShops.");
 
             database.CreateCollection("cars");
+            this.writter.WriteLine("Creating collection - cars.");
+
             database.CreateCollection("shops");
+            this.writter.WriteLine("Creating collection - shops.");
+
             database.CreateCollection("parts");
+            this.writter.WriteLine("Creating collection - parts.");
+
 
             var cars = database.GetCollection<Car>("cars");
             var shops = database.GetCollection<Shop>("shops");
@@ -30,6 +43,8 @@ namespace CarsFactory.MongoDB
             cars.InsertMany(CreateCars());
             shops.InsertMany(CreateCarShops());
             parts.InsertMany(CreateParts());
+
+            this.writter.WriteLine("Seeding complete.");
         }
 
         private static IEnumerable<Car> CreateCars()

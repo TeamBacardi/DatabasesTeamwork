@@ -8,26 +8,33 @@ using System.Linq;
 
 using CarsFactory.Data;
 using CarsFactory.Models;
+using Utils;
 
 namespace CarsFactory.Excel
 {
-    public static class ExcelImproter
+    public class ExcelImproter
     {
         private const string PathToExctract = @"../Extracted";
         private static readonly DirectoryInfo DirectoryInfo = new DirectoryInfo(PathToExctract);
+        private IWritter writter;
 
         private const string SelectQuery = "Select * from [Sales$]";
         private const string OleDbConnectionString =
             "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0;HDR=YES;IMEX=1;'";
 
-        public static void ImportToMssql(string archivePath, CarsFactoryDbContext dbContext)
+        public ExcelImproter(IWritter writter)
+        {
+            this.writter = writter;
+        }
+
+        public void ImportToMssql(string archivePath, CarsFactoryDbContext dbContext)
         {
             UnzipArchive(archivePath);
             IterateDirectory(DirectoryInfo, dbContext);
             ClearExtracredDirecotry();
         }
 
-        private static void UnzipArchive(string path)
+        private void UnzipArchive(string path)
         {
             try
             {
@@ -40,16 +47,15 @@ namespace CarsFactory.Excel
             }          
         }
 
-        private static void ClearExtracredDirecotry()
+        private void ClearExtracredDirecotry()
         {
-
             foreach (DirectoryInfo dir in DirectoryInfo.GetDirectories())
             {
                 dir.Delete(true);
             }
         }
 
-        private static void IterateDirectory(DirectoryInfo directory, CarsFactoryDbContext db)
+        private void IterateDirectory(DirectoryInfo directory, CarsFactoryDbContext db)
         {
             DirectoryInfo[] childDirectories = directory.GetDirectories();
 
@@ -59,12 +65,14 @@ namespace CarsFactory.Excel
                 IterateDirectory(dir, db);
             }
 
+            this.writter.WriteLine($"Unzipping folder {directory.Name}");
 
             string currectDocumentDate = directory.Name;
 
             FileInfo[] files = directory.GetFiles();
             foreach (var file in files)
             {
+                this.writter.WriteLine($"Importing from file {file.Name}");
                 DataTable data = ReadFile(file.FullName);
 
                 SaleReport saleReport = new SaleReport();
@@ -116,6 +124,7 @@ namespace CarsFactory.Excel
 
                     db.SaleReports.Add(saleReport);
                     db.SaveChanges();
+                    this.writter.WriteLine($"Finished importing from file {file.Name}");
                 }
                 catch (DbEntityValidationException e)
                 {
@@ -134,7 +143,7 @@ namespace CarsFactory.Excel
             }
         }
 
-        private static DataTable ReadFile(string path)
+        private DataTable ReadFile(string path)
         {
             using (var connection = new OleDbConnection())
             {
@@ -157,14 +166,11 @@ namespace CarsFactory.Excel
             }
         }
 
-        private static Sale CreateSale(DataRow row, CarsFactoryDbContext dbContext)
+        private Sale CreateSale(DataRow row, CarsFactoryDbContext dbContext)
         {
             var carId = int.Parse(row["CarId"].ToString());
             var car = dbContext.Cars.FirstOrDefault(c => c.Id == carId);
-
-            var partId = int.Parse(row["PartId"].ToString());
-            var part = dbContext.Parts.FirstOrDefault(p => p.Id == partId);
-
+            
             var quantity = int.Parse(row["Quantity"].ToString());
             var price = decimal.Parse(row["Price"].ToString());
             var sum = decimal.Parse(row["Sum"].ToString());
@@ -172,8 +178,6 @@ namespace CarsFactory.Excel
             var sale = new Sale
             {
                 Car = car,
-                //Part = part,
-                //PartId = partId,
                 Price = price,
                 Quantity = quantity,
                 Sum = sum

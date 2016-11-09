@@ -70,6 +70,7 @@ namespace CarsFactory.XML
 
             WriteCars(writer, shop.Cars);
 
+            if(shop.SaleReport != null)
             WriteSaleReport(writer, shop.SaleReport);
 
             writer.WriteEndElement();

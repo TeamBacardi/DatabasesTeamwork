@@ -59,40 +59,31 @@
           <part id="24" name="Opel 3 Part" weight="5" price="20.00" />
         </parts>
       </Car>
-      <Car id="43" details="test details 1" model="test model 1" year="1990" price="">
+      <Car id="41" details="A ver good car." model="Lancer" year="2016" price="50000.00">
+        <parts />
+      </Car>
+      <Car id="42" details="Does not have indicators." model="M3" year="2015" price="70000.00">
+        <parts />
+      </Car>
+      <Car id="43" details="A ver good car." model="Lancer" year="2016" price="50000.00">
+        <parts />
+      </Car>
+      <Car id="44" details="Does not have indicators." model="M3" year="2015" price="70000.00">
         <parts />
       </Car>
       <Car id="45" details="test details 1" model="test model 1" year="1990" price="">
         <parts />
       </Car>
-      <Car id="47" details="test details 1" model="test model 1" year="1990" price="">
+      <Car id="47" details="A ver good car." model="Lancer" year="2016" price="50000.00">
         <parts />
       </Car>
-      <Car id="49" details="test details 1" model="test model 1" year="1990" price="">
+      <Car id="48" details="Does not have indicators." model="M3" year="2015" price="70000.00">
         <parts />
       </Car>
     </Cars>
-    <SaleReport id="1" date="02-Nov-16 17:57:57">
+    <SaleReport id="1" date="09-Nov-16 12:07:43">
       <Name>Sale Report for shop 0</Name>
       <Sales>
-        <Sale id="1" quantity="1" price="200021.00" sum="0.00">
-          <Car id="1" details="Sold car0" model="Ferrari 0" year="2000" price="200021.00">
-            <parts>
-              <part id="1" name="Ferrari 0 Part" weight="1" price="0.00" />
-              <part id="2" name="Ferrari 0 Part" weight="2" price="10.00" />
-              <part id="3" name="Ferrari 0 Part" weight="5" price="20.00" />
-            </parts>
-          </Car>
-        </Sale>
-        <Sale id="2" quantity="2" price="200022.00" sum="32.00">
-          <Car id="2" details="Sold car1" model="Ferrari 1" year="2001" price="200022.00">
-            <parts>
-              <part id="4" name="Ferrari 1 Part" weight="1" price="0.00" />
-              <part id="5" name="Ferrari 1 Part" weight="2" price="10.00" />
-              <part id="6" name="Ferrari 1 Part" weight="5" price="20.00" />
-            </parts>
-          </Car>
-        </Sale>
         <Sale id="3" quantity="3" price="200029.00" sum="64.00">
           <Car id="3" details="Sold car2" model="Ferrari 2" year="2002" price="200029.00">
             <parts>
@@ -173,20 +164,11 @@
           <part id="48" name="Opel 3 Part" weight="5" price="20.00" />
         </parts>
       </Car>
-      <Car id="44" details="test details 2" model="test model 2" year="2000" price="">
-        <parts />
-      </Car>
       <Car id="46" details="test details 2" model="test model 2" year="2000" price="">
         <parts />
       </Car>
-      <Car id="48" details="test details 2" model="test model 2" year="2000" price="">
-        <parts />
-      </Car>
-      <Car id="50" details="test details 2" model="test model 2" year="2000" price="">
-        <parts />
-      </Car>
     </Cars>
-    <SaleReport id="2" date="02-Nov-16 17:57:57">
+    <SaleReport id="2" date="09-Nov-16 12:07:43">
       <Name>Sale Report for shop 1</Name>
       <Sales>
         <Sale id="9" quantity="1" price="200021.00" sum="0.00">
@@ -288,7 +270,7 @@
         </parts>
       </Car>
     </Cars>
-    <SaleReport id="3" date="02-Nov-16 17:57:57">
+    <SaleReport id="3" date="09-Nov-16 12:07:43">
       <Name>Sale Report for shop 2</Name>
       <Sales>
         <Sale id="17" quantity="1" price="200021.00" sum="0.00">
@@ -390,7 +372,7 @@
         </parts>
       </Car>
     </Cars>
-    <SaleReport id="4" date="02-Nov-16 17:57:57">
+    <SaleReport id="4" date="09-Nov-16 12:07:43">
       <Name>Sale Report for shop 3</Name>
       <Sales>
         <Sale id="25" quantity="1" price="200021.00" sum="0.00">
@@ -492,7 +474,7 @@
         </parts>
       </Car>
     </Cars>
-    <SaleReport id="5" date="02-Nov-16 17:57:57">
+    <SaleReport id="5" date="09-Nov-16 12:07:43">
       <Name>Sale Report for shop 4</Name>
       <Sales>
         <Sale id="33" quantity="1" price="200021.00" sum="0.00">
@@ -528,6 +510,169 @@
               <part id="106" name="Ferrari 3 Part" weight="1" price="0.00" />
               <part id="107" name="Ferrari 3 Part" weight="2" price="10.00" />
               <part id="108" name="Ferrari 3 Part" weight="5" price="20.00" />
+            </parts>
+          </Car>
+        </Sale>
+      </Sales>
+    </SaleReport>
+  </Shop>
+  <Shop id="6">
+    <Name>Gorublqne Car Dealership</Name>
+    <Cars />
+  </Shop>
+  <Shop id="7">
+    <Name>Banishora Car Dealership</Name>
+    <Cars />
+  </Shop>
+  <Shop id="8">
+    <Name>Excell Made Shop</Name>
+    <Cars />
+    <SaleReport id="8" date="20-Aug-15 00:00:00">
+      <Name>Report for SaleReport: 2</Name>
+      <Sales />
+    </SaleReport>
+  </Shop>
+  <Shop id="9">
+    <Name>Gorublqne Car Dealership</Name>
+    <Cars />
+  </Shop>
+  <Shop id="10">
+    <Name>Banishora Car Dealership</Name>
+    <Cars />
+  </Shop>
+  <Shop id="11">
+    <Name>Excell Made Shop</Name>
+    <Cars />
+    <SaleReport id="11" date="20-Aug-15 00:00:00">
+      <Name>Report for SaleReport: 2</Name>
+      <Sales />
+    </SaleReport>
+  </Shop>
+  <Shop id="12">
+    <Name>Gorublqne Car Dealership</Name>
+    <Cars />
+  </Shop>
+  <Shop id="13">
+    <Name>Banishora Car Dealership</Name>
+    <Cars />
+  </Shop>
+  <Shop id="14">
+    <Name>Excell Made Shop</Name>
+    <Cars />
+    <SaleReport id="14" date="20-Aug-15 00:00:00">
+      <Name>Report for SaleReport: 2</Name>
+      <Sales />
+    </SaleReport>
+  </Shop>
+  <Shop id="15">
+    <Name>Excell Made Shop</Name>
+    <Cars />
+    <SaleReport id="15" date="20-Aug-15 00:00:00">
+      <Name>Report for SaleReport: 2</Name>
+      <Sales />
+    </SaleReport>
+  </Shop>
+  <Shop id="16">
+    <Name>Excell Made Shop</Name>
+    <Cars />
+    <SaleReport id="16" date="20-Aug-15 00:00:00">
+      <Name>Report for SaleReport: 2</Name>
+      <Sales />
+    </SaleReport>
+  </Shop>
+  <Shop id="17">
+    <Name>Excell Made Shop</Name>
+    <Cars />
+    <SaleReport id="17" date="20-Aug-15 00:00:00">
+      <Name>Report for SaleReport: 2</Name>
+      <Sales />
+    </SaleReport>
+  </Shop>
+  <Shop id="18">
+    <Name>Excell Made Shop</Name>
+    <Cars />
+    <SaleReport id="18" date="20-Aug-15 00:00:00">
+      <Name>Report for SaleReport: 2</Name>
+      <Sales />
+    </SaleReport>
+  </Shop>
+  <Shop id="19">
+    <Name>Excell Made Shop</Name>
+    <Cars />
+    <SaleReport id="19" date="21-Aug-15 00:00:00">
+      <Name>Report for SaleReport: 2</Name>
+      <Sales />
+    </SaleReport>
+  </Shop>
+  <Shop id="20">
+    <Name>Excell Made Shop</Name>
+    <Cars />
+    <SaleReport id="20" date="21-Aug-15 00:00:00">
+      <Name>Report for SaleReport: 2</Name>
+      <Sales />
+    </SaleReport>
+  </Shop>
+  <Shop id="21">
+    <Name>Excell Made Shop</Name>
+    <Cars />
+    <SaleReport id="21" date="21-Aug-15 00:00:00">
+      <Name>Report for SaleReport: 2</Name>
+      <Sales />
+    </SaleReport>
+  </Shop>
+  <Shop id="22">
+    <Name>Excell Made Shop</Name>
+    <Cars />
+    <SaleReport id="22" date="21-Aug-15 00:00:00">
+      <Name>Report for SaleReport: 2</Name>
+      <Sales />
+    </SaleReport>
+  </Shop>
+  <Shop id="23">
+    <Name>Excell Made Shop</Name>
+    <Cars />
+    <SaleReport id="23" date="22-Aug-15 00:00:00">
+      <Name>Report for SaleReport: 2</Name>
+      <Sales />
+    </SaleReport>
+  </Shop>
+  <Shop id="24">
+    <Name>Excell Made Shop</Name>
+    <Cars />
+    <SaleReport id="24" date="22-Aug-15 00:00:00">
+      <Name>Report for SaleReport: 2</Name>
+      <Sales />
+    </SaleReport>
+  </Shop>
+  <Shop id="25">
+    <Name>Excell Made Shop</Name>
+    <Cars />
+    <SaleReport id="25" date="22-Aug-15 00:00:00">
+      <Name>Report for SaleReport: 2</Name>
+      <Sales />
+    </SaleReport>
+  </Shop>
+  <Shop id="26">
+    <Name>Excell Made Shop</Name>
+    <Cars />
+    <SaleReport id="26" date="22-Aug-15 00:00:00">
+      <Name>Report for SaleReport: 2</Name>
+      <Sales>
+        <Sale id="1" quantity="2" price="200.00" sum="400.00">
+          <Car id="1" details="Sold car0" model="Ferrari 0" year="2000" price="200021.00">
+            <parts>
+              <part id="1" name="Ferrari 0 Part" weight="1" price="0.00" />
+              <part id="2" name="Ferrari 0 Part" weight="2" price="10.00" />
+              <part id="3" name="Ferrari 0 Part" weight="5" price="20.00" />
+            </parts>
+          </Car>
+        </Sale>
+        <Sale id="2" quantity="4" price="122.00" sum="488.00">
+          <Car id="2" details="Sold car1" model="Ferrari 1" year="2001" price="200022.00">
+            <parts>
+              <part id="4" name="Ferrari 1 Part" weight="1" price="0.00" />
+              <part id="5" name="Ferrari 1 Part" weight="2" price="10.00" />
+              <part id="6" name="Ferrari 1 Part" weight="5" price="20.00" />
             </parts>
           </Car>
         </Sale>

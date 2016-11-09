@@ -5,15 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarsFactory.DesktopClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="587" Width="948">
-    <Grid>
+        Title="Team Bacardi Database Teamwork" Height="587" Width="731">
+    <Grid Margin="0,0,2,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Button x:Name="ExcelImportButton" Content="Import Excel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="372,10,0,0" Click="ExcelImportButton_Click" RenderTransformOrigin="0.507,0.4"/>
         <Button x:Name="MongoDbSeed" Content="Seed Mongo Db" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="10,10,0,0" Click="MongoDbSeed_Click"/>
         <Button x:Name="MongoDbImport" Content="Import from Mongo Db" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="10,45,0,0" Click="MongoDbImport_Click"/>
-        <TextBox x:Name="TestBox" Margin="10,116,10,48"/>
+        <TextBox x:Name="TestBox" Margin="10,116,10,10"/>
         <Button x:Name="ImportFromXmlToDb" Content="Import XML To Db" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="187,45,0,0" Click="ImportFromXmlToDb_Click"/>
         <Button x:Name="MySqlTools" Content="MySQL Tools" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="187,10,0,0" Click="MySQLTools_Click"/>
         <Button x:Name="GeneratePdf" Content="Generate Pdf" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="562,10,0,0" Click="GeneratePdf_Click"/>
         <Button x:Name="GenerateXml" Content="Generate Xml" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="562,45,0,0" Click="GenerateXml_Click"/>
+        <Button x:Name="GenerateJson" Content="Generate JSON" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="372,45,0,0" Click="GenerateJson_Click"/>
     </Grid>
 </Window>

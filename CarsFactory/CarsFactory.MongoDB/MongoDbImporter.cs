@@ -1,6 +1,7 @@
 ﻿using CarsFactory.Data;
 using CarsFactory.Models;
 using MongoDB.Driver;
+using Utils;
 
 namespace CarsFactory.MongoDB
 {
@@ -10,10 +11,12 @@ namespace CarsFactory.MongoDB
         private readonly CarsFactoryDbContext dbContext;
         
         private static IMongoDatabase database;
+        private IWritter writter;
 
-        public MongoDbImporter(CarsFactoryDbContext dbContext)
+        public MongoDbImporter(CarsFactoryDbContext dbContext, IWritter writter)
         {
             this.dbContext = dbContext;
+            this.writter = writter;
             this.client = new MongoClient();
         }
 
@@ -26,10 +29,13 @@ namespace CarsFactory.MongoDB
             var parts = database.GetCollection<Part>("parts");
 
             TransferCarShops(shops, dbContext);
+            this.writter.WriteLine("Collection 'shops' successfuly transffered to MSSQL server");
+
             TransferCars(cars, dbContext);
+            this.writter.WriteLine("Collection 'cars' successfuly transffered to MSSQL server");
+
             TransferParts(parts, dbContext);
-
-
+            this.writter.WriteLine("Collection 'parts' successfuly transffered to MSSQL server");
         }
 
         private void TransferCars(IMongoCollection<Car> collection, CarsFactoryDbContext dbContext)
